@@ -14,6 +14,7 @@ gradlew text eol=lf
 # readable text, but Git must not rewrite line endings underneath recorded hashes.
 *.lockfile -text
 gradle/verification-metadata.xml -text
+research/provenance/measured-verification-metadata-v1.xml -text
 learning/requirements.lock -text
 learning/models/*.json -text
 research/protocols/*.json -text

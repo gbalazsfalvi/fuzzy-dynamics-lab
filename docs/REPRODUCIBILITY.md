@@ -1,6 +1,6 @@
 # Reproducing the software and study
 
-Run commands from the repository root. The examples use Windows PowerShell; replace `.\gradlew.bat` with `./gradlew`, `.\learning\.venv\Scripts\python.exe` with `learning/.venv/bin/python`, and `npm.cmd` with `npm` on Linux or macOS. Use an unchanged checkout of the release being reproduced.
+Run commands from the repository root. The examples use Windows PowerShell; replace `.\gradlew.bat` with `./gradlew`, `.\learning\.venv\Scripts\python.exe` with `learning/.venv/bin/python`, and `npm.cmd` with `npm` on Linux or macOS. Build the current release for interactive use; restore the exact measured checkout below when replaying the published study.
 
 ## Environment and artifact identity
 
@@ -131,4 +131,26 @@ The [v0.1.0 release](https://github.com/gbalazsfalvi/fuzzy-dynamics-lab/releases
 
 Source/build-input hashes bind the recorded numerical implementation inputs; protocol hashes bind the full declared configuration, including frozen model contents. Model exports identify training CSV and training-code/dependency hashes. Payload hashes bind stored geometry bytes; the final freeze separately records analysis and model-file hashes. Hash consistency detects changes relative to a trusted record, but provides no signature or independent authentication of correctness.
 
-A new machine can replay deterministic numerical artifacts from the exact release with its frozen weights. Retraining, timing reproduction, independent proof review, and external validation are separate activities. Keep their results and limitations separate in any derived report.
+### Restore and replay the published study
+
+The measured source is commit `253c2de108991eef56ad2f9c0294d43ad74edeb7`, tagged `study-source-v1`, with source/build fingerprint `5fe3555edfc33b1e475e6b0af908818e4495b7931361e345b262e25a5a7cb76c`. The release app subsequently adds 17 missing POM/module metadata checksums required by a cold full API/test build. Strict verification remains enabled; no version, executable dependency, numerical source, model, protocol or statistical analysis changed. The [measured input inventory](../research/provenance/measured-build-inputs-v1.json), [original metadata](../research/provenance/measured-verification-metadata-v1.xml), and [reviewed additions](../research/provenance/dependency-metadata-review-v1.json) preserve that distinction. The original data/evidence ZIPs retain their measured-source revision and bytes. The separately published `release-build-provenance.json` identifies the release revision and its CI checks.
+
+Create a separate checkout, leaving an existing workbench checkout intact:
+
+```powershell
+git clone --branch study-source-v1 https://github.com/gbalazsfalvi/fuzzy-dynamics-lab.git fuzzy-dynamics-lab-study
+cd fuzzy-dynamics-lab-study
+git rev-parse HEAD
+```
+
+Require the exact 40-character commit above. Download the **complete data ZIP** and `SHA256SUMS` from release v0.1.0. Check the ZIP's SHA-256 against that inventory before extraction; the small curated ZIP deliberately omits most numerical payloads and cannot support full replay. Extract the ZIP's contents into this measured checkout, retaining the relative `artifacts/`, `research/`, `learning/` and other recorded paths. It includes documents from the measured snapshot; do not overwrite the checkout with current-release source files. Check its internal `SHA256SUMS` and inventory as described in `BUNDLE_README.md`. Keep paths as regular files, without links or traversal entries.
+
+With JDK 21, run:
+
+```powershell
+python tools/replay_evaluation.py --root .
+```
+
+This standard-library command archives the previous active receipt, executes the real Java verifier for all 3,700 eligible saved numerical runs and complete declared outcomes, and writes a new PASS receipt only after observed success. It does not regenerate outcomes or train models. The measured checkout's main-runtime numerical path supports strict dependency verification; CI separately checks its small foundation/CAE generation and saved CAE replay from an empty dependency cache. The current-release CI builds the full API, tests and workbench. Neither small CI job is represented as a full cohort replay.
+
+To analyze again, create the hash-locked Python 3.13 environment in this measured checkout and run `tools/analyze_verified.py` as above. Full replay and analysis use the original frozen fingerprint; a maintenance build's different digest must not be inserted into the saved manifest, freeze or receipts. Retraining, timing reproduction, independent proof review, and external validation remain separate activities.

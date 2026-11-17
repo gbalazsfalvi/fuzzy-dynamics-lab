@@ -113,3 +113,51 @@ jobs:
       # Large comparison, label generation, training, validation and held-out
       # evaluation are intentional local research runs, never default CI jobs.
       # No artifact upload or deployment step includes workstation/cache data.
+
+  measured-source-replay:
+    name: Frozen measured-source numerical smoke replay
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Study evidence binds this immutable source/build-input snapshot. The
+      # current-release job above verifies subsequent dependency metadata repair.
+      - name: Check out the measured source snapshot
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: 253c2de108991eef56ad2f9c0294d43ad74edeb7
+          persist-credentials: false
+
+      - name: Set up Java 21
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Validate wrapper without a dependency cache
+        uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6
+        with:
+          validate-wrappers: true
+          cache-disabled: true
+          dependency-graph: disabled
+
+      - name: Generate small measured-source numerical evidence
+        shell: bash
+        run: bash ./gradlew --no-daemon --dependency-verification=strict foundationDemo caeDemo
+
+      - name: Replay saved CAE evidence in a separate process
+        shell: bash
+        run: bash ./gradlew --no-daemon --dependency-verification=strict verifyCaeDemo
+
+      - name: Require the published measured fingerprint and unchanged inputs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          expected = '5fe3555edfc33b1e475e6b0af908818e4495b7931361e345b262e25a5a7cb76c'
+          for name in ('foundation-demo.json', 'cae-demo.json'):
+              assert json.loads(Path('artifacts', name).read_text())['sourceSha256'] == expected, name
+          PY
+          git diff --exit-code
+      # This bounded numerical smoke replay does not rerun the held-out cohort.
+      # The release retains the separately observed complete 3,700-run receipt.

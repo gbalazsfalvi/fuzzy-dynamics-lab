@@ -95,6 +95,8 @@ Python 3.13 is needed for model training and saved-artifact analysis. Start with
 
 Release evidence records source/build-input, protocol, model, payload, and analysis SHA-256 hashes. These fingerprints support consistency checks and exact artifact identification; they are not signatures or authentication. Frozen model files should be reused when reproducing a release's numerical decisions. A new fit is a new artifact even when it uses the same seed.
 
+**Measured source and release maintenance:** the saved study was generated and replayed with commit [`253c2de`](https://github.com/gbalazsfalvi/fuzzy-dynamics-lab/tree/253c2de108991eef56ad2f9c0294d43ad74edeb7), tagged `study-source-v1`. The release additionally completes 17 reviewed dependency-metadata checksums needed by a cold full build. Numerical code, dependency versions, models, protocols, analysis and saved outcomes are unchanged. Because verification metadata belongs to the frozen build-input digest, replay downloaded study evidence in that exact measured checkout, following the [restoration instructions](docs/REPRODUCIBILITY.md#restore-and-replay-the-published-study). Do not substitute the current release's digest for the measured fingerprint.
+
 ## Documentation
 
 | Read | Purpose |

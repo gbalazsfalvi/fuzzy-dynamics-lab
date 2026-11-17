@@ -1,5 +1,13 @@
 # Deterministic release data and portfolio evidence
 
+The v0.1.0 data and evidence archives identify measured commit
+`253c2de108991eef56ad2f9c0294d43ad74edeb7` (`study-source-v1`). The release app
+adds reviewed dependency-metadata checksums for cold full builds without
+rewriting the measured fingerprint or outcomes. Use the exact measured checkout
+for full saved-study replay. See the [restoration guide](REPRODUCIBILITY.md#restore-and-replay-the-published-study)
+and the separate `release-build-provenance.json` release asset for the two
+source identities, reviewed additions, CI and asset hashes.
+
 `tools/package_release.py` uses only the Python standard library. It packages
 existing final files; it does not run a numerical job, replay, analysis, model
 fit, selection, Git command, upload or deployment. Never run it as a substitute
