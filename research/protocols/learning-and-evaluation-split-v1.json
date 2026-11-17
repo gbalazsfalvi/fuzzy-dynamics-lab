@@ -1,0 +1,4860 @@
+{
+  "id": "learning-and-evaluation-split-v1",
+  "date": "2026-11-17",
+  "stage": "FROZEN_BEFORE_LABELS_AND_FINAL_EVALUATION",
+  "generationSeed": 1711202604,
+  "precision": 24,
+  "labelMaxRefinements": 48,
+  "labelMaxCells": 49,
+  "labelMaxDepth": 12,
+  "fairnessPeriod": 5,
+  "labelTolerance": "0.000001",
+  "modelSeeds": [
+    11,
+    23,
+    37,
+    51,
+    71
+  ],
+  "featureVersion": "cae-cell-features-v1",
+  "primaryTarget": "signed local horizon-bound reduction from a complete trial split",
+  "selectionRule": "max(0,predictedGain)/estimatedChildWork",
+  "problems": [
+    {
+      "id": "train-000",
+      "baseProblemId": "train-000",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "633/1009"
+            ],
+            "width": "187/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-001",
+      "baseProblemId": "train-001",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "408/1009",
+              "772/1009"
+            ],
+            "width": "111/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "601/1009",
+              "237/1009"
+            ],
+            "width": "111/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-002",
+      "baseProblemId": "train-002",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "643/1009"
+            ],
+            "width": "93/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "366/1009"
+            ],
+            "width": "93/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-003",
+      "baseProblemId": "train-003",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "788/1009",
+              "519/1009"
+            ],
+            "width": "73/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-004",
+      "baseProblemId": "train-004",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "704/1009"
+            ],
+            "width": "93/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-005",
+      "baseProblemId": "train-005",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "352/1009",
+              "640/1009"
+            ],
+            "width": "221/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "657/1009",
+              "369/1009"
+            ],
+            "width": "221/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-006",
+      "baseProblemId": "train-006",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "653/1009"
+            ],
+            "width": "3/20",
+            "height": "1"
+          },
+          {
+            "center": [
+              "356/1009"
+            ],
+            "width": "3/20",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-007",
+      "baseProblemId": "train-007",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "182/1009",
+              "539/1009"
+            ],
+            "width": "51/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-008",
+      "baseProblemId": "train-008",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "196/1009"
+            ],
+            "width": "28/125",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-009",
+      "baseProblemId": "train-009",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "683/1009",
+              "419/1009"
+            ],
+            "width": "131/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "326/1009",
+              "590/1009"
+            ],
+            "width": "131/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-010",
+      "baseProblemId": "train-010",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "434/1009"
+            ],
+            "width": "233/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "575/1009"
+            ],
+            "width": "233/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-011",
+      "baseProblemId": "train-011",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "205/1009",
+              "737/1009"
+            ],
+            "width": "11/50",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-012",
+      "baseProblemId": "train-012",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "627/1009"
+            ],
+            "width": "129/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-013",
+      "baseProblemId": "train-013",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "717/1009",
+              "217/1009"
+            ],
+            "width": "119/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "292/1009",
+              "792/1009"
+            ],
+            "width": "119/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-014",
+      "baseProblemId": "train-014",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "7/2",
+        "peaks": [
+          {
+            "center": [
+              "669/1009"
+            ],
+            "width": "26/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "340/1009"
+            ],
+            "width": "26/125",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-015",
+      "baseProblemId": "train-015",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "572/1009",
+              "193/1009"
+            ],
+            "width": "53/250",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-016",
+      "baseProblemId": "train-016",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "719/1009"
+            ],
+            "width": "141/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-017",
+      "baseProblemId": "train-017",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "778/1009",
+              "653/1009"
+            ],
+            "width": "221/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "231/1009",
+              "356/1009"
+            ],
+            "width": "221/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-018",
+      "baseProblemId": "train-018",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "799/1009"
+            ],
+            "width": "103/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "210/1009"
+            ],
+            "width": "103/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-019",
+      "baseProblemId": "train-019",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "328/1009",
+              "542/1009"
+            ],
+            "width": "13/100",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-020",
+      "baseProblemId": "train-020",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "600/1009"
+            ],
+            "width": "221/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-021",
+      "baseProblemId": "train-021",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "848/1009",
+              "188/1009"
+            ],
+            "width": "3/20",
+            "height": "1"
+          },
+          {
+            "center": [
+              "161/1009",
+              "821/1009"
+            ],
+            "width": "3/20",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-022",
+      "baseProblemId": "train-022",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "544/1009"
+            ],
+            "width": "4/25",
+            "height": "1"
+          },
+          {
+            "center": [
+              "465/1009"
+            ],
+            "width": "4/25",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-023",
+      "baseProblemId": "train-023",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "453/1009",
+              "334/1009"
+            ],
+            "width": "131/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-024",
+      "baseProblemId": "train-024",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "276/1009"
+            ],
+            "width": "39/250",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-025",
+      "baseProblemId": "train-025",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "665/1009",
+              "232/1009"
+            ],
+            "width": "97/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "344/1009",
+              "777/1009"
+            ],
+            "width": "97/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-026",
+      "baseProblemId": "train-026",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "362/1009"
+            ],
+            "width": "26/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "647/1009"
+            ],
+            "width": "26/125",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-027",
+      "baseProblemId": "train-027",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "681/1009",
+              "523/1009"
+            ],
+            "width": "1/8",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-028",
+      "baseProblemId": "train-028",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "408/1009"
+            ],
+            "width": "129/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-029",
+      "baseProblemId": "train-029",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "814/1009",
+              "293/1009"
+            ],
+            "width": "117/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "195/1009",
+              "716/1009"
+            ],
+            "width": "117/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-030",
+      "baseProblemId": "train-030",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "822/1009"
+            ],
+            "width": "37/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "187/1009"
+            ],
+            "width": "37/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-031",
+      "baseProblemId": "train-031",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "414/1009",
+              "381/1009"
+            ],
+            "width": "119/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-032",
+      "baseProblemId": "train-032",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "3",
+        "peaks": [
+          {
+            "center": [
+              "703/1009"
+            ],
+            "width": "131/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-033",
+      "baseProblemId": "train-033",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "411/1009",
+              "752/1009"
+            ],
+            "width": "28/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "598/1009",
+              "257/1009"
+            ],
+            "width": "28/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-034",
+      "baseProblemId": "train-034",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "818/1009"
+            ],
+            "width": "111/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "191/1009"
+            ],
+            "width": "111/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-035",
+      "baseProblemId": "train-035",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "812/1009",
+              "783/1009"
+            ],
+            "width": "119/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-036",
+      "baseProblemId": "train-036",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "307/1009"
+            ],
+            "width": "49/250",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-037",
+      "baseProblemId": "train-037",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "247/1009",
+              "385/1009"
+            ],
+            "width": "143/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "762/1009",
+              "624/1009"
+            ],
+            "width": "143/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-038",
+      "baseProblemId": "train-038",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "608/1009"
+            ],
+            "width": "37/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "401/1009"
+            ],
+            "width": "37/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-039",
+      "baseProblemId": "train-039",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "175/1009",
+              "198/1009"
+            ],
+            "width": "87/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-040",
+      "baseProblemId": "train-040",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "266/1009"
+            ],
+            "width": "117/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-041",
+      "baseProblemId": "train-041",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "407/1009",
+              "473/1009"
+            ],
+            "width": "191/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "602/1009",
+              "536/1009"
+            ],
+            "width": "191/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-042",
+      "baseProblemId": "train-042",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "256/1009"
+            ],
+            "width": "1/10",
+            "height": "1"
+          },
+          {
+            "center": [
+              "753/1009"
+            ],
+            "width": "1/10",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-043",
+      "baseProblemId": "train-043",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "731/1009",
+              "720/1009"
+            ],
+            "width": "167/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-044",
+      "baseProblemId": "train-044",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "7/2",
+        "peaks": [
+          {
+            "center": [
+              "475/1009"
+            ],
+            "width": "231/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-045",
+      "baseProblemId": "train-045",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "223/1009",
+              "752/1009"
+            ],
+            "width": "81/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "786/1009",
+              "257/1009"
+            ],
+            "width": "81/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-046",
+      "baseProblemId": "train-046",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "768/1009"
+            ],
+            "width": "51/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "241/1009"
+            ],
+            "width": "51/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-047",
+      "baseProblemId": "train-047",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "186/1009",
+              "182/1009"
+            ],
+            "width": "63/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-048",
+      "baseProblemId": "train-048",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "638/1009"
+            ],
+            "width": "37/250",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-049",
+      "baseProblemId": "train-049",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "831/1009",
+              "193/1009"
+            ],
+            "width": "51/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "178/1009",
+              "816/1009"
+            ],
+            "width": "51/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-050",
+      "baseProblemId": "train-050",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "3",
+        "peaks": [
+          {
+            "center": [
+              "818/1009"
+            ],
+            "width": "83/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "191/1009"
+            ],
+            "width": "83/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-051",
+      "baseProblemId": "train-051",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "788/1009",
+              "209/1009"
+            ],
+            "width": "59/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-052",
+      "baseProblemId": "train-052",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "609/1009"
+            ],
+            "width": "107/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-053",
+      "baseProblemId": "train-053",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "488/1009",
+              "693/1009"
+            ],
+            "width": "153/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "521/1009",
+              "316/1009"
+            ],
+            "width": "153/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-054",
+      "baseProblemId": "train-054",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "250/1009"
+            ],
+            "width": "139/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "759/1009"
+            ],
+            "width": "139/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-055",
+      "baseProblemId": "train-055",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "424/1009",
+              "571/1009"
+            ],
+            "width": "81/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-056",
+      "baseProblemId": "train-056",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "495/1009"
+            ],
+            "width": "23/125",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-057",
+      "baseProblemId": "train-057",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "202/1009",
+              "693/1009"
+            ],
+            "width": "27/200",
+            "height": "1"
+          },
+          {
+            "center": [
+              "807/1009",
+              "316/1009"
+            ],
+            "width": "27/200",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-058",
+      "baseProblemId": "train-058",
+      "split": "train",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "816/1009"
+            ],
+            "width": "19/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "193/1009"
+            ],
+            "width": "19/125",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-059",
+      "baseProblemId": "train-059",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "259/1009",
+              "705/1009"
+            ],
+            "width": "24/125",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "train-060",
+      "baseProblemId": "train-060",
+      "split": "train",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "551/1009"
+            ],
+            "width": "73/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-061",
+      "baseProblemId": "train-061",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "154/1009",
+              "563/1009"
+            ],
+            "width": "61/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "855/1009",
+              "446/1009"
+            ],
+            "width": "61/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-062",
+      "baseProblemId": "train-062",
+      "split": "train",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "181/1009"
+            ],
+            "width": "111/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "828/1009"
+            ],
+            "width": "111/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "train-063",
+      "baseProblemId": "train-063",
+      "split": "train",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "260/1009",
+              "716/1009"
+            ],
+            "width": "51/250",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-000",
+      "baseProblemId": "validation-000",
+      "split": "validation",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "161/337"
+            ],
+            "width": "139/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-001",
+      "baseProblemId": "validation-001",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "164/1011",
+              "167/337"
+            ],
+            "width": "183/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "847/1011",
+              "170/337"
+            ],
+            "width": "183/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-002",
+      "baseProblemId": "validation-002",
+      "split": "validation",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "238/1011"
+            ],
+            "width": "67/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "773/1011"
+            ],
+            "width": "67/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-003",
+      "baseProblemId": "validation-003",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "54/337",
+              "713/1011"
+            ],
+            "width": "81/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-004",
+      "baseProblemId": "validation-004",
+      "split": "validation",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "517/1011"
+            ],
+            "width": "153/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-005",
+      "baseProblemId": "validation-005",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "235/337",
+              "233/1011"
+            ],
+            "width": "13/100",
+            "height": "1"
+          },
+          {
+            "center": [
+              "102/337",
+              "778/1011"
+            ],
+            "width": "13/100",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-006",
+      "baseProblemId": "validation-006",
+      "split": "validation",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "91/337"
+            ],
+            "width": "53/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "246/337"
+            ],
+            "width": "53/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-007",
+      "baseProblemId": "validation-007",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "664/1011",
+              "53/337"
+            ],
+            "width": "137/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-008",
+      "baseProblemId": "validation-008",
+      "split": "validation",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "3",
+        "peaks": [
+          {
+            "center": [
+              "766/1011"
+            ],
+            "width": "193/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-009",
+      "baseProblemId": "validation-009",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "437/1011",
+              "640/1011"
+            ],
+            "width": "71/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "574/1011",
+              "371/1011"
+            ],
+            "width": "71/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-010",
+      "baseProblemId": "validation-010",
+      "split": "validation",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "199/337"
+            ],
+            "width": "127/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "138/337"
+            ],
+            "width": "127/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-011",
+      "baseProblemId": "validation-011",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "575/1011",
+              "764/1011"
+            ],
+            "width": "179/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-012",
+      "baseProblemId": "validation-012",
+      "split": "validation",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "200/337"
+            ],
+            "width": "63/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-013",
+      "baseProblemId": "validation-013",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "72/337",
+              "220/337"
+            ],
+            "width": "159/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "265/337",
+              "117/337"
+            ],
+            "width": "159/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-014",
+      "baseProblemId": "validation-014",
+      "split": "validation",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "54/337"
+            ],
+            "width": "23/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "283/337"
+            ],
+            "width": "23/125",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-015",
+      "baseProblemId": "validation-015",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "224/1011",
+              "52/337"
+            ],
+            "width": "223/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-016",
+      "baseProblemId": "validation-016",
+      "split": "validation",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "539/1011"
+            ],
+            "width": "71/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-017",
+      "baseProblemId": "validation-017",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "170/1011",
+              "374/1011"
+            ],
+            "width": "3/25",
+            "height": "1"
+          },
+          {
+            "center": [
+              "841/1011",
+              "637/1011"
+            ],
+            "width": "3/25",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-018",
+      "baseProblemId": "validation-018",
+      "split": "validation",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "269/337"
+            ],
+            "width": "16/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "68/337"
+            ],
+            "width": "16/125",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-019",
+      "baseProblemId": "validation-019",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "177/337",
+              "71/337"
+            ],
+            "width": "193/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-020",
+      "baseProblemId": "validation-020",
+      "split": "validation",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "7/2",
+        "peaks": [
+          {
+            "center": [
+              "521/1011"
+            ],
+            "width": "69/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-021",
+      "baseProblemId": "validation-021",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "781/1011",
+              "343/1011"
+            ],
+            "width": "29/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "230/1011",
+              "668/1011"
+            ],
+            "width": "29/250",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "validation-022",
+      "baseProblemId": "validation-022",
+      "split": "validation",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "437/1011"
+            ],
+            "width": "53/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "574/1011"
+            ],
+            "width": "53/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "validation-023",
+      "baseProblemId": "validation-023",
+      "split": "validation",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "410/1011",
+              "113/337"
+            ],
+            "width": "29/250",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-000",
+      "baseProblemId": "test-id-1d-000",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "296/1013"
+            ],
+            "width": "83/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-001",
+      "baseProblemId": "test-id-1d-001",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "710/1013"
+            ],
+            "width": "28/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "303/1013"
+            ],
+            "width": "28/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-002",
+      "baseProblemId": "test-id-1d-002",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "582/1013"
+            ],
+            "width": "221/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "431/1013"
+            ],
+            "width": "221/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-003",
+      "baseProblemId": "test-id-1d-003",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "245/1013"
+            ],
+            "width": "109/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-004",
+      "baseProblemId": "test-id-1d-004",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "823/1013"
+            ],
+            "width": "1/8",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-005",
+      "baseProblemId": "test-id-1d-005",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "329/1013"
+            ],
+            "width": "16/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "684/1013"
+            ],
+            "width": "16/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-006",
+      "baseProblemId": "test-id-1d-006",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "595/1013"
+            ],
+            "width": "113/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "418/1013"
+            ],
+            "width": "113/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-007",
+      "baseProblemId": "test-id-1d-007",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "806/1013"
+            ],
+            "width": "11/100",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-008",
+      "baseProblemId": "test-id-1d-008",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "342/1013"
+            ],
+            "width": "209/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-009",
+      "baseProblemId": "test-id-1d-009",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "522/1013"
+            ],
+            "width": "19/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "491/1013"
+            ],
+            "width": "19/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-010",
+      "baseProblemId": "test-id-1d-010",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "163/1013"
+            ],
+            "width": "233/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "850/1013"
+            ],
+            "width": "233/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-011",
+      "baseProblemId": "test-id-1d-011",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "753/1013"
+            ],
+            "width": "93/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-012",
+      "baseProblemId": "test-id-1d-012",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "304/1013"
+            ],
+            "width": "101/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-013",
+      "baseProblemId": "test-id-1d-013",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "759/1013"
+            ],
+            "width": "173/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "254/1013"
+            ],
+            "width": "173/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-014",
+      "baseProblemId": "test-id-1d-014",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "361/1013"
+            ],
+            "width": "77/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "652/1013"
+            ],
+            "width": "77/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-015",
+      "baseProblemId": "test-id-1d-015",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "327/1013"
+            ],
+            "width": "203/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-016",
+      "baseProblemId": "test-id-1d-016",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "495/1013"
+            ],
+            "width": "33/250",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-017",
+      "baseProblemId": "test-id-1d-017",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "7/2",
+        "peaks": [
+          {
+            "center": [
+              "477/1013"
+            ],
+            "width": "193/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "536/1013"
+            ],
+            "width": "193/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-018",
+      "baseProblemId": "test-id-1d-018",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "828/1013"
+            ],
+            "width": "139/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "185/1013"
+            ],
+            "width": "139/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-019",
+      "baseProblemId": "test-id-1d-019",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "359/1013"
+            ],
+            "width": "27/250",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-020",
+      "baseProblemId": "test-id-1d-020",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "562/1013"
+            ],
+            "width": "139/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-021",
+      "baseProblemId": "test-id-1d-021",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "533/1013"
+            ],
+            "width": "227/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "480/1013"
+            ],
+            "width": "227/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-022",
+      "baseProblemId": "test-id-1d-022",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "334/1013"
+            ],
+            "width": "211/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "679/1013"
+            ],
+            "width": "211/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-023",
+      "baseProblemId": "test-id-1d-023",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "3",
+        "peaks": [
+          {
+            "center": [
+              "544/1013"
+            ],
+            "width": "217/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-024",
+      "baseProblemId": "test-id-1d-024",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "692/1013"
+            ],
+            "width": "169/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-025",
+      "baseProblemId": "test-id-1d-025",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "609/1013"
+            ],
+            "width": "157/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "404/1013"
+            ],
+            "width": "157/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-026",
+      "baseProblemId": "test-id-1d-026",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "7/2",
+        "peaks": [
+          {
+            "center": [
+              "546/1013"
+            ],
+            "width": "211/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "467/1013"
+            ],
+            "width": "211/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-027",
+      "baseProblemId": "test-id-1d-027",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "487/1013"
+            ],
+            "width": "27/200",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-1d-028",
+      "baseProblemId": "test-id-1d-028",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "812/1013"
+            ],
+            "width": "23/125",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-1d-029",
+      "baseProblemId": "test-id-1d-029",
+      "split": "test-id-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "236/1013"
+            ],
+            "width": "231/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "777/1013"
+            ],
+            "width": "231/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-000",
+      "baseProblemId": "test-id-2d-000",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "286/1015",
+              "143/203"
+            ],
+            "width": "127/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-001",
+      "baseProblemId": "test-id-2d-001",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "22/29",
+              "694/1015"
+            ],
+            "width": "119/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "7/29",
+              "321/1015"
+            ],
+            "width": "119/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-002",
+      "baseProblemId": "test-id-2d-002",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "487/1015",
+              "739/1015"
+            ],
+            "width": "137/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "528/1015",
+              "276/1015"
+            ],
+            "width": "137/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-003",
+      "baseProblemId": "test-id-2d-003",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "792/1015",
+              "776/1015"
+            ],
+            "width": "133/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-004",
+      "baseProblemId": "test-id-2d-004",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "633/1015",
+              "54/145"
+            ],
+            "width": "57/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-005",
+      "baseProblemId": "test-id-2d-005",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "166/203",
+              "347/1015"
+            ],
+            "width": "19/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "37/203",
+              "668/1015"
+            ],
+            "width": "19/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-006",
+      "baseProblemId": "test-id-2d-006",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "120/203",
+              "607/1015"
+            ],
+            "width": "219/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "83/203",
+              "408/1015"
+            ],
+            "width": "219/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-007",
+      "baseProblemId": "test-id-2d-007",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "61/145",
+              "729/1015"
+            ],
+            "width": "23/100",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-008",
+      "baseProblemId": "test-id-2d-008",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "792/1015",
+              "337/1015"
+            ],
+            "width": "69/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-009",
+      "baseProblemId": "test-id-2d-009",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "816/1015",
+              "90/203"
+            ],
+            "width": "23/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "199/1015",
+              "113/203"
+            ],
+            "width": "23/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-010",
+      "baseProblemId": "test-id-2d-010",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "114/145",
+              "141/203"
+            ],
+            "width": "23/200",
+            "height": "1"
+          },
+          {
+            "center": [
+              "31/145",
+              "62/203"
+            ],
+            "width": "23/200",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-011",
+      "baseProblemId": "test-id-2d-011",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "676/1015",
+              "773/1015"
+            ],
+            "width": "51/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-012",
+      "baseProblemId": "test-id-2d-012",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "751/1015",
+              "247/1015"
+            ],
+            "width": "209/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-013",
+      "baseProblemId": "test-id-2d-013",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "39/145",
+              "77/145"
+            ],
+            "width": "213/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "106/145",
+              "68/145"
+            ],
+            "width": "213/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-014",
+      "baseProblemId": "test-id-2d-014",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "797/1015",
+              "162/1015"
+            ],
+            "width": "113/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "218/1015",
+              "853/1015"
+            ],
+            "width": "113/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-015",
+      "baseProblemId": "test-id-2d-015",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "354/1015",
+              "542/1015"
+            ],
+            "width": "231/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-016",
+      "baseProblemId": "test-id-2d-016",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "661/1015",
+              "627/1015"
+            ],
+            "width": "149/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-017",
+      "baseProblemId": "test-id-2d-017",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "254/1015",
+              "243/1015"
+            ],
+            "width": "57/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "761/1015",
+              "772/1015"
+            ],
+            "width": "57/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-018",
+      "baseProblemId": "test-id-2d-018",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "499/1015",
+              "818/1015"
+            ],
+            "width": "59/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "516/1015",
+              "197/1015"
+            ],
+            "width": "59/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-019",
+      "baseProblemId": "test-id-2d-019",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "246/1015",
+              "723/1015"
+            ],
+            "width": "29/250",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-020",
+      "baseProblemId": "test-id-2d-020",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "118/145",
+              "597/1015"
+            ],
+            "width": "197/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-021",
+      "baseProblemId": "test-id-2d-021",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "311/1015",
+              "27/145"
+            ],
+            "width": "23/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "704/1015",
+              "118/145"
+            ],
+            "width": "23/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-022",
+      "baseProblemId": "test-id-2d-022",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "256/1015",
+              "453/1015"
+            ],
+            "width": "51/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "759/1015",
+              "562/1015"
+            ],
+            "width": "51/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-023",
+      "baseProblemId": "test-id-2d-023",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "27/35",
+              "773/1015"
+            ],
+            "width": "159/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-024",
+      "baseProblemId": "test-id-2d-024",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "81/203",
+              "115/203"
+            ],
+            "width": "187/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-025",
+      "baseProblemId": "test-id-2d-025",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "171/1015",
+              "683/1015"
+            ],
+            "width": "201/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "844/1015",
+              "332/1015"
+            ],
+            "width": "201/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-026",
+      "baseProblemId": "test-id-2d-026",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "409/1015",
+              "257/1015"
+            ],
+            "width": "53/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "606/1015",
+              "758/1015"
+            ],
+            "width": "53/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-id-2d-027",
+      "baseProblemId": "test-id-2d-027",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "689/1015",
+              "486/1015"
+            ],
+            "width": "113/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-028",
+      "baseProblemId": "test-id-2d-028",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "457/1015",
+              "90/203"
+            ],
+            "width": "17/125",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "test-id-2d-029",
+      "baseProblemId": "test-id-2d-029",
+      "split": "test-id-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "732/1015",
+              "279/1015"
+            ],
+            "width": "28/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "283/1015",
+              "736/1015"
+            ],
+            "width": "28/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "test-ood-1d-000",
+      "baseProblemId": "test-ood-1d-000",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "736/1017"
+            ],
+            "width": "1/25",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-001",
+      "baseProblemId": "test-ood-1d-001",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "82/113"
+            ],
+            "width": "27/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "31/113"
+            ],
+            "width": "27/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-002",
+      "baseProblemId": "test-ood-1d-002",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "55/339"
+            ],
+            "width": "23/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "284/339"
+            ],
+            "width": "23/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-003",
+      "baseProblemId": "test-ood-1d-003",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "251/1017"
+            ],
+            "width": "13/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-004",
+      "baseProblemId": "test-ood-1d-004",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "104/339"
+            ],
+            "width": "7/200",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-005",
+      "baseProblemId": "test-ood-1d-005",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "161/1017"
+            ],
+            "width": "21/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "856/1017"
+            ],
+            "width": "21/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-006",
+      "baseProblemId": "test-ood-1d-006",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "370/1017"
+            ],
+            "width": "13/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "647/1017"
+            ],
+            "width": "13/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-007",
+      "baseProblemId": "test-ood-1d-007",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "611/1017"
+            ],
+            "width": "41/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-008",
+      "baseProblemId": "test-ood-1d-008",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "539/1017"
+            ],
+            "width": "1/50",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-009",
+      "baseProblemId": "test-ood-1d-009",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "149/339"
+            ],
+            "width": "31/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "190/339"
+            ],
+            "width": "31/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-010",
+      "baseProblemId": "test-ood-1d-010",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "30/113"
+            ],
+            "width": "3/100",
+            "height": "1"
+          },
+          {
+            "center": [
+              "83/113"
+            ],
+            "width": "3/100",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-011",
+      "baseProblemId": "test-ood-1d-011",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "454/1017"
+            ],
+            "width": "1/25",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-012",
+      "baseProblemId": "test-ood-1d-012",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "602/1017"
+            ],
+            "width": "1/50",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-013",
+      "baseProblemId": "test-ood-1d-013",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "431/1017"
+            ],
+            "width": "31/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "586/1017"
+            ],
+            "width": "31/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-014",
+      "baseProblemId": "test-ood-1d-014",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "71/113"
+            ],
+            "width": "19/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "42/113"
+            ],
+            "width": "19/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-015",
+      "baseProblemId": "test-ood-1d-015",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "275/339"
+            ],
+            "width": "47/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-016",
+      "baseProblemId": "test-ood-1d-016",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "100/339"
+            ],
+            "width": "9/200",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-017",
+      "baseProblemId": "test-ood-1d-017",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "779/1017"
+            ],
+            "width": "11/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "238/1017"
+            ],
+            "width": "11/250",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-018",
+      "baseProblemId": "test-ood-1d-018",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "520/1017"
+            ],
+            "width": "11/200",
+            "height": "1"
+          },
+          {
+            "center": [
+              "497/1017"
+            ],
+            "width": "11/200",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-019",
+      "baseProblemId": "test-ood-1d-019",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "830/1017"
+            ],
+            "width": "13/200",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-020",
+      "baseProblemId": "test-ood-1d-020",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "467/1017"
+            ],
+            "width": "61/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-021",
+      "baseProblemId": "test-ood-1d-021",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "205/1017"
+            ],
+            "width": "27/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "812/1017"
+            ],
+            "width": "27/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-022",
+      "baseProblemId": "test-ood-1d-022",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "346/1017"
+            ],
+            "width": "9/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "671/1017"
+            ],
+            "width": "9/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-023",
+      "baseProblemId": "test-ood-1d-023",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "536/1017"
+            ],
+            "width": "3/100",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-024",
+      "baseProblemId": "test-ood-1d-024",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "584/1017"
+            ],
+            "width": "61/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-1d-025",
+      "baseProblemId": "test-ood-1d-025",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "790/1017"
+            ],
+            "width": "3/100",
+            "height": "1"
+          },
+          {
+            "center": [
+              "227/1017"
+            ],
+            "width": "3/100",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-026",
+      "baseProblemId": "test-ood-1d-026",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "662/1017"
+            ],
+            "width": "41/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "355/1017"
+            ],
+            "width": "41/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-027",
+      "baseProblemId": "test-ood-1d-027",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "484/1017"
+            ],
+            "width": "13/200",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-028",
+      "baseProblemId": "test-ood-1d-028",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "625/1017"
+            ],
+            "width": "41/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-1d-029",
+      "baseProblemId": "test-ood-1d-029",
+      "split": "test-ood-1d",
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "259/339"
+            ],
+            "width": "9/200",
+            "height": "1"
+          },
+          {
+            "center": [
+              "80/339"
+            ],
+            "width": "9/200",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-000",
+      "baseProblemId": "test-ood-2d-000",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "418/1019",
+              "434/1019"
+            ],
+            "width": "17/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-001",
+      "baseProblemId": "test-ood-2d-001",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "367/1019",
+              "752/1019"
+            ],
+            "width": "6/125",
+            "height": "1"
+          },
+          {
+            "center": [
+              "652/1019",
+              "267/1019"
+            ],
+            "width": "6/125",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-002",
+      "baseProblemId": "test-ood-2d-002",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "428/1019",
+              "811/1019"
+            ],
+            "width": "27/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "591/1019",
+              "208/1019"
+            ],
+            "width": "27/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-003",
+      "baseProblemId": "test-ood-2d-003",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "687/1019",
+              "821/1019"
+            ],
+            "width": "33/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-004",
+      "baseProblemId": "test-ood-2d-004",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "609/1019",
+              "336/1019"
+            ],
+            "width": "13/250",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-005",
+      "baseProblemId": "test-ood-2d-005",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "153/1019",
+              "272/1019"
+            ],
+            "width": "43/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "866/1019",
+              "747/1019"
+            ],
+            "width": "43/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-006",
+      "baseProblemId": "test-ood-2d-006",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "256/1019",
+              "489/1019"
+            ],
+            "width": "11/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "763/1019",
+              "530/1019"
+            ],
+            "width": "11/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-007",
+      "baseProblemId": "test-ood-2d-007",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "312/1019",
+              "404/1019"
+            ],
+            "width": "49/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-008",
+      "baseProblemId": "test-ood-2d-008",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "684/1019",
+              "346/1019"
+            ],
+            "width": "27/500",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-009",
+      "baseProblemId": "test-ood-2d-009",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "596/1019",
+              "647/1019"
+            ],
+            "width": "13/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "423/1019",
+              "372/1019"
+            ],
+            "width": "13/250",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-010",
+      "baseProblemId": "test-ood-2d-010",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "794/1019",
+              "800/1019"
+            ],
+            "width": "29/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "225/1019",
+              "219/1019"
+            ],
+            "width": "29/500",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-011",
+      "baseProblemId": "test-ood-2d-011",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "286/1019",
+              "206/1019"
+            ],
+            "width": "59/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-012",
+      "baseProblemId": "test-ood-2d-012",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "715/1019",
+              "802/1019"
+            ],
+            "width": "11/200",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-013",
+      "baseProblemId": "test-ood-2d-013",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "251/1019",
+              "589/1019"
+            ],
+            "width": "37/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "768/1019",
+              "430/1019"
+            ],
+            "width": "37/1000",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-014",
+      "baseProblemId": "test-ood-2d-014",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "564/1019",
+              "526/1019"
+            ],
+            "width": "23/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "455/1019",
+              "493/1019"
+            ],
+            "width": "23/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-015",
+      "baseProblemId": "test-ood-2d-015",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "203/1019",
+              "353/1019"
+            ],
+            "width": "29/500",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-016",
+      "baseProblemId": "test-ood-2d-016",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "685/1019",
+              "375/1019"
+            ],
+            "width": "7/200",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-017",
+      "baseProblemId": "test-ood-2d-017",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "559/1019",
+              "618/1019"
+            ],
+            "width": "19/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "460/1019",
+              "401/1019"
+            ],
+            "width": "19/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-018",
+      "baseProblemId": "test-ood-2d-018",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "724/1019",
+              "715/1019"
+            ],
+            "width": "47/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "295/1019",
+              "304/1019"
+            ],
+            "width": "47/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-019",
+      "baseProblemId": "test-ood-2d-019",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "698/1019",
+              "558/1019"
+            ],
+            "width": "1/25",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-020",
+      "baseProblemId": "test-ood-2d-020",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "417/1019",
+              "255/1019"
+            ],
+            "width": "61/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-021",
+      "baseProblemId": "test-ood-2d-021",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "548/1019",
+              "315/1019"
+            ],
+            "width": "31/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "471/1019",
+              "704/1019"
+            ],
+            "width": "31/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-022",
+      "baseProblemId": "test-ood-2d-022",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "244/1019",
+              "306/1019"
+            ],
+            "width": "11/250",
+            "height": "1"
+          },
+          {
+            "center": [
+              "775/1019",
+              "713/1019"
+            ],
+            "width": "11/250",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-023",
+      "baseProblemId": "test-ood-2d-023",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "665/1019",
+              "677/1019"
+            ],
+            "width": "39/1000",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-024",
+      "baseProblemId": "test-ood-2d-024",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "513/1019",
+              "595/1019"
+            ],
+            "width": "3/50",
+            "height": "1"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-025",
+      "baseProblemId": "test-ood-2d-025",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "237/1019",
+              "673/1019"
+            ],
+            "width": "1/40",
+            "height": "1"
+          },
+          {
+            "center": [
+              "782/1019",
+              "346/1019"
+            ],
+            "width": "1/40",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-026",
+      "baseProblemId": "test-ood-2d-026",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "590/1019",
+              "678/1019"
+            ],
+            "width": "33/1000",
+            "height": "1"
+          },
+          {
+            "center": [
+              "429/1019",
+              "341/1019"
+            ],
+            "width": "33/1000",
+            "height": "3/4"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-027",
+      "baseProblemId": "test-ood-2d-027",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "222/1019",
+              "741/1019"
+            ],
+            "width": "4/125",
+            "height": "2/3"
+          }
+        ],
+        "horizon": 8
+      }
+    },
+    {
+      "id": "test-ood-2d-028",
+      "baseProblemId": "test-ood-2d-028",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "293/1019",
+              "719/1019"
+            ],
+            "width": "53/1000",
+            "height": "1"
+          }
+        ],
+        "horizon": 6
+      }
+    },
+    {
+      "id": "test-ood-2d-029",
+      "baseProblemId": "test-ood-2d-029",
+      "split": "test-ood-2d",
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/2",
+        "peaks": [
+          {
+            "center": [
+              "389/1019",
+              "278/1019"
+            ],
+            "width": "27/500",
+            "height": "1"
+          },
+          {
+            "center": [
+              "630/1019",
+              "741/1019"
+            ],
+            "width": "27/500",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 6
+      }
+    }
+  ]
+}

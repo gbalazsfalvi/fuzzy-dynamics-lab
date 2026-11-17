@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, cite this version and identify the exact release
+  and evidence artifacts used. This citation describes a research software
+  artifact and does not establish scientific novelty or peer review.
+type: software
+title: Fuzzy Dynamics Lab
+authors:
+  - family-names: Balázsfalvi
+    given-names: Gergő
+version: 0.1.0
+date-released: '2026-11-17'
+license: Apache-2.0
+repository-code: https://github.com/gbalazsfalvi/fuzzy-dynamics-lab
+url: https://github.com/gbalazsfalvi/fuzzy-dynamics-lab
+abstract: >-
+  Research software for finite-horizon approximation of discrete dynamical
+  systems with fuzzy initial states. It separates adaptive refinement policy
+  selection from independently computed numerical error bounds and includes
+  exact references, replayable evidence, frozen learned ranking policies,
+  saved-artifact analysis and a local Java and React workbench. Certificates,
+  observed errors, empirical comparisons and unresolved novelty questions
+  have distinct scopes. Membership grades are not probabilities.
+keywords:
+  - fuzzy dynamical systems
+  - interval arithmetic
+  - adaptive refinement
+  - reproducible research
+  - numerical error bounds

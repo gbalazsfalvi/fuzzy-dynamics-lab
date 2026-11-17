@@ -1,0 +1,32 @@
+Fuzzy Dynamics Lab
+Copyright 2026 Gergő Balázsfalvi
+
+Project-authored code, documentation, original figures and explicitly included
+research artifacts are licensed under the Apache License, Version 2.0.
+See LICENSE. This notice does not change the license terms.
+
+Research attribution
+--------------------
+The exact piecewise-linear transport baseline is an independently written
+specialization of the procedure described in Section 4.1 of:
+
+Jiří Kupka and Nicole Škorupová (2021),
+"On PSO-Based Simulations of Fuzzy Dynamical Systems Induced by
+One-Dimensional Ones", Mathematics 9(21), 2737.
+https://doi.org/10.3390/math9212737
+
+The implementation uses exact rational arithmetic, transports pieces through
+map branches and combines colliding membership contributions by pointwise
+maximum. Attribution acknowledges the published algorithm; it does not claim
+that this project originated it. The baseline is a qualified specialization,
+not a reproduction of the paper's complete PSO optimization or experiments.
+No third-party implementation or article PDF is included in this project.
+See docs/COMPARISON_METHOD.md and the source register for scope and access.
+
+Third-party materials
+---------------------
+Dependencies and build tooling retain their upstream copyrights and licenses.
+Gradle wrapper files, Java and Python dependencies, JavaScript dependencies
+and bundled fonts are not relicensed by this notice. Their dependency metadata
+and any distributed upstream notices remain applicable. Scientific references
+and linked publications remain the works of their respective authors.

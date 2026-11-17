@@ -1,0 +1,644 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}
+\setmonofont{lmmono10-regular.otf}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=24mm]{geometry}
+\usepackage{graphicx,booktabs,longtable,array,microtype,xcolor,enumitem,fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\emergencystretch=1em
+\setlist{nosep,leftmargin=*}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Fuzzy Dynamics Lab}
+\fancyhead[R]{\small Research software study, 0.1.0}
+\fancyfoot[C]{\thepage}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\up}{\operatorname{up}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\dE}{d_{\E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert_{\infty}}
+\newcommand{\pos}[1]{\left(#1\right)_{+}}
+\newcommand{\code}[1]{\texttt{\small\detokenize{#1}}}
+\hypersetup{pdftitle={Fuzzy Dynamics Lab: certified adaptive extension and frozen policy evaluation},pdfauthor={Gergő Balázsfalvi},pdfsubject={Research software study; internal derivations; no scientific novelty claim}}
+\ifdefined\LayoutFixture
+  \newcommand{\StudyStatus}{LAYOUT FIXTURE: empirical results excluded}
+\else
+  \InputIfFileExists{generated/evidence.tex}{}{\PackageError{fuzzy-study}{Verified evidence.tex is missing}{Run build_report.py only after final saved analysis is available.}}
+  \newcommand{\StudyStatus}{Research software report; internally reviewed, not peer reviewed}
+\fi
+\title{Fuzzy Dynamics Lab:\\Certified adaptive extension and\\frozen refinement-policy evaluation}
+\author{Gergő Balázsfalvi\\\small Independent research software project\\\small\url{https://github.com/gbalazsfalvi/fuzzy-dynamics-lab}}
+\date{17 November 2026\quad\textbar\quad Version 0.1.0}
+\begin{document}
+\maketitle
+\begin{center}\small\textbf{\StudyStatus}\end{center}
+\begin{abstract}
+We study finite-horizon approximation of a discrete dynamical system with a
+fuzzy initial state on the unit interval or square. A complete partition of
+the initial domain supplies transported representatives, whole-cell membership
+bounds and directed trajectory enclosures. These quantities give a Hausdorff
+bound between full endographs, including their common zero baseline. We state
+the assumptions and prove both directed estimates, explain the spatial
+recurrence and conditional fixed-horizon convergence, and exhibit an exact
+counterexample to monotone improvement under splitting. Policy scores are
+separated from the numerical certificate: a learned ranker may select a cell
+but cannot certify its children. Exact scalar cut propagation and an attributed
+piecewise-linear transport specialization provide qualified comparisons.
+The empirical protocol separates 64 training, 24 validation and 120 test base
+problems, retains five neural model seeds and 20 random controls, and specifies
+a paired clustered analysis before final outcomes. All 3,700 eligible saved
+numerical runs passed canonical replay. The selected ridge policy certified
+67 of 120 test bases versus 78 for maximum-bound selection: an equal-regime
+difference of $-9.17$ percentage points, with grouped 95\% percentile interval
+$[-14.17,-4.17]$. Conditional median work and time ratios were 1.110 on 67
+jointly certified pairs and 1.389 on seven of twelve predefined timing pairs.
+The scalar audit found no verified violation in 1,200 qualified brackets
+from six scalar bases;
+72 upper-only exceedances remain inconclusive. These observations do not
+support an advantage from this frozen learned ranker. Findings are imported
+from saved, hashed evaluation and analysis artifacts. The
+mathematical arguments are internally derived specializations, with an
+independent-pass internal AI review; external mathematical review and the
+closest full-text literature comparison remain open. No scientific novelty,
+universal speedup, production suitability or joint two-dimensional reference
+validation is claimed.
+\end{abstract}
+\clearpage
+
+\section{Question, contribution and claim boundaries}
+Zadeh's extension principle transports fuzzy membership through a deterministic
+map. Its numerical representation becomes difficult when trajectories stretch,
+fold or merge. Disconnected cuts and low-height components are meaningful;
+replacing them by a convex hull or normalizing every state would change the
+problem. Our question is narrower than discovering a new extension principle:
+can an auditable implementation adapt an initial-domain cover, bound the
+resulting approximation, and evaluate refinement policies under one frozen
+protocol?
+
+The software contribution is the combination of a complete-cover numerical
+recipe, immutable incumbent and last snapshots, exact scalar reference
+geometry, exported learned ranking policies, evidence replay, and a local
+Java/React workbench. A certificate is an assumption-bound mathematical upper
+bound. A verified implementation test is evidence on the tested cases.
+A measured comparison is a finite-cohort observation. These statements have
+different logical roles and are not interchangeable.
+
+Approximation, decomposition, endograph metrics and maximum-based reconstruction
+are prior subjects~\cite{zadeh,roman,decomposition,decomposition2008,kupka2016,pwl}.
+Publisher previews already establish substantial relevant prior art. The
+complete 2007 and 2016 closest papers were not obtained through the recorded
+lawful public access routes. Their detailed assumptions, constants and
+equivalence to this recipe have not been resolved. The propositions below
+organize elementary covering and Lipschitz arguments for this representation;
+they are not presented as independently established novel theorems.
+
+A public article transcription of the 2008 work describes a levelwise
+Hausdorff metric, Cartesian fuzzy-interval inputs and local tangent
+approximations. Its mathematical OCR is damaged: printed-formula and constant
+verification remain open. This is not a reproduced comparison baseline.
+
+\section{Mathematical object and representation}
+Let $X=[0,1]^d$, $d\in\{1,2\}$, with the infinity norm. Let
+$f:X\to X$ be continuous, and let $\mu_0:X\to[0,1]$ be upper semicontinuous.
+For a nonnegative integer $t$, define
+\begin{equation}\label{eq:extension}
+ \mu_t(y)=\sup\{\mu_0(x):f^t(x)=y\},\qquad\sup\varnothing=0.
+\end{equation}
+Compactness of a nonempty fiber and upper semicontinuity attain its maximum.
+Composition of the suprema agrees with repeated extension. Positive cuts are
+compact continuous images, so the transported membership remains upper
+semicontinuous. Nonnormal states and an identically zero state are allowed.
+
+The full endograph and product metric are
+\begin{align}
+ \E(u)&=\{(x,a)\in X\times[0,1]:0\leq a\leq u(x)\},\\
+ d_{\Box}((x,a),(y,b))&=\max\{\norm{x-y},|a-b|\}.
+\end{align}
+We write $\dE(u,v)$ for the Hausdorff distance of these compact endographs.
+Every endograph includes $X\times\{0\}$, not merely transported zero-height
+representatives. The distance is at most one. Coordinates and grades are
+dimensionless; rescaling either changes the metric. Membership is not
+probability, and grades are neither summed nor renormalized.
+
+Let $\mathcal P$ be a finite compact cover of $X$. Boundary overlap is harmless.
+Each cell $C$ has $x_C\in C$, stored $a_C\in[0,1]$, and numerical representatives
+$y_{C,t}\in X$. Assume, for every $x\in C$ and $0\leq t\leq T$,
+\begin{align}\label{eq:hypotheses}
+ |a_C-\mu_0(x_C)|&\leq\sigma_C,&
+ |\mu_0(x)-\mu_0(x_C)|&\leq\kappa_C,\\
+ \mu_0(x)&\leq M_C\leq1,&
+ \norm{f^t(x)-y_{C,t}}&\leq\rho_{C,t}.
+\end{align}
+These are whole-cell premises, not conclusions of sampling. The finite state is
+\begin{equation}\label{eq:finite}
+ \widehat\mu_t(y)=\max\bigl(\{a_C:y_{C,t}=y,\ C\in\mathcal P\}\cup\{0\}\bigr).
+\end{equation}
+Colliding representatives use maximum. Missing a height-one peak is permitted;
+its effect must be captured by the bound.
+
+\section{The certificate and its proof}
+\subsection{P1: two directed distances}
+Put $v_C=\kappa_C+\sigma_C$ and
+\begin{equation}\label{eq:certificate}
+ b_{C,t}=\min\{\max(M_C,a_C),\ \max(\rho_{C,t},v_C)\},
+ \qquad B_t=\max_{C\in\mathcal P}b_{C,t}.
+\end{equation}
+\begin{proposition}[P1: covering certificate]
+Under the preceding premises, $\dE(\mu_t,\widehat\mu_t)\leq B_t$ for every
+$t\in\{0,\ldots,T\}$.
+\end{proposition}
+\begin{proof}
+Take $(y,a)\in\E(\mu_t)$. At $a=0$ the point is shared. Otherwise choose a
+fiber maximizer $x$ with $f^t(x)=y$ and $\mu_0(x)\geq a$, and choose a cell
+$C$ containing $x$. The approximate endograph contains
+$(y_{C,t},\min(a,a_C))$. Its spatial error is at most $\rho_{C,t}$, and
+\[
+ (a-a_C)_+\leq|\mu_0(x)-a_C|\leq\kappa_C+\sigma_C.
+\]
+Independently, $(y,0)$ is shared and gives distance $a\leq M_C$. Thus the
+forward directed distance is at most
+\[
+ D(\E(\mu_t),\E(\widehat\mu_t))
+ \leq\max_C\min\{M_C,\max(\rho_{C,t},v_C)\}.
+\]
+For the reverse direction, let $(y,a)\in\E(\widehat\mu_t)$ have $a>0$.
+Some finite maximizing cell has $y=y_{C,t}$ and $a\leq a_C$.
+The true endograph contains
+$(f^t(x_C),\min(a,\mu_0(x_C)))$. Spatial error is at most $\rho_{C,t}$;
+vertical error is at most $\sigma_C$. The shared baseline also gives $a_C$,
+so
+\[
+ D(\E(\widehat\mu_t),\E(\mu_t))
+ \leq\max_C\min\{a_C,\max(\rho_{C,t},\sigma_C)\}.
+\]
+Each cell contribution in both estimates is bounded by $b_{C,t}$.
+Taking their maximum proves the assertion.
+\end{proof}
+
+The cap needs $\max(M_C,a_C)$ for a general two-sided grade error. If the true
+membership is zero but a stored atom has height one, $M_C=0$ alone would give
+an invalid zero cap; $\sigma_C=1$ correctly records the error. The shipped
+lower-grade recipe is more restricted, but the general statement should not
+silently assume it. Noninjectivity, shared boundaries and representative
+collisions do not require injective matching.
+
+\subsection{A canonical outward membership recipe}
+For a verified whole-cell range $[\ell_C,u_C]$, a verified representative range
+$[p_C,q_C]$, and a whole-domain membership Lipschitz bound $K$, the recipe uses
+\begin{align}
+ a_C&=p_C,&\sigma_C&=\up(q_C-p_C),&M_C&=u_C,\\
+ \kappa_C&=\min\left\{
+  \max\bigl(\up(u_C-p_C),\up(q_C-\ell_C)\bigr),
+  \up(K\rho_{C,0})\right\}.
+\end{align}
+Here $\up$ is directed rounding toward positive infinity at a declared
+significant decimal precision. Each candidate bounds the same exact variation,
+so their minimum is safe. The certificate uses an upward-rounded
+$\kappa_C+\sigma_C$. Initial grades are transported unchanged, so membership
+variation is not multiplied at every time step. Decimal evidence is serialized
+as strings; model parameters begin as exact rational text.
+
+\subsection{P2: spatial propagation and independent tightening}
+\begin{proposition}[P2: one-step enclosure]
+Suppose $Q_{C,k}$ contains both $f^k(C)$ and $y_{C,k}$, and $f$ is
+$L_{C,k}$-Lipschitz on this complete region. If
+$\norm{y_{C,k+1}-f(y_{C,k})}\leq\eta_{C,k}$ and $\rho_{C,k}$ is valid,
+then $L_{C,k}\rho_{C,k}+\eta_{C,k}$ is a valid next radius.
+\end{proposition}
+\begin{proof}
+Insert $f(y_{C,k})$ and use the triangle inequality:
+\[
+ \norm{f^{k+1}(x)-y_{C,k+1}}
+ \leq L_{C,k}\norm{f^k(x)-y_{C,k}}+\eta_{C,k}
+ \leq L_{C,k}\rho_{C,k}+\eta_{C,k}.
+\]
+\end{proof}
+The implementation takes the convex hull of the reachable interval box and
+the representative before bounding the derivative or analytic Lipschitz
+constant. A representative outside a tightened box must still be included.
+For $f(x)=x^2$, the derivative at representative zero is zero, yet the cell
+$[0,1]$ reaches one. This refutes a representative-only derivative rule.
+
+The midpoint of an outward singleton image supplies the next numerical
+representative; that interval's radius supplies $\eta$. Products and sums
+round upward. An independently propagated interval image supplies a second
+valid enclosure. Their intersection remains valid; a disjoint intersection
+is an arithmetic failure. To describe residual accumulation with a global
+$L$, define the \emph{exact-arithmetic comparison sequence}
+$r_{C,0}=\rho_{C,0}$ and $r_{C,k+1}=Lr_{C,k}+\eta_{C,k}$. Then
+\begin{equation}\label{eq:residuals}
+ \sup_{x\in C}\norm{f^t(x)-y_{C,t}}\leq r_{C,t}
+ = L^t\rho_{C,0}
+  +\sum_{k=0}^{t-1}L^{t-1-k}\eta_{C,k}.
+\end{equation}
+This identity concerns the exact comparison sequence, not an upper bound on
+the stored outward-rounded radius $\rho_{C,t}$. The latter can exceed the
+unrounded expression because of arithmetic slack. P1 uses the actual saved,
+conservatively rounded radius, including that slack and any valid interval
+tightening; it never substitutes the unrounded expression for a certificate.
+P2 concerns spatial radii. It does not multiply the entire endograph distance
+by $L$: the unchanged membership coordinate gives a product-map factor
+$\max(1,L)$. Even a constant spatial map need not erase grade differences.
+
+\section{Refinement, convergence and finite resources}
+\subsection{P3: validity is independent of the ranking policy}
+Every committed split replaces one leaf by both closed longest-side children.
+The initial cover is the complete unit box, including zero-membership regions.
+Both child computations must finish before replacing their parent. Cancellation
+or a failed child discards the incomplete split and preserves a complete prior
+snapshot. Exact binary leaf-prefix collapse verifies coverage without a
+floating-point volume test.
+
+P1 depends on the returned cover and quantities, not on a ranking score.
+A learned, random or adversarial selector therefore cannot change certificate
+validity if it preserves those premises. It can profoundly change cost and
+termination. Removing an inconvenient cell is not a valid policy operation.
+Every fifth adaptive selection uses FIFO fairness; deterministic ties and
+child creation order are recorded.
+
+\begin{proposition}[P3: conditional fixed-horizon convergence]
+Assume finite global Lipschitz constants $L$ for $f$ and $K$ for $\mu_0$,
+exact representative/grade arithmetic, unlimited refinement and fair
+longest-side bisection. If $r$ is the largest initial cell radius, then
+\begin{equation}\label{eq:convergence}
+ \max_{0\leq t\leq T}\dE(\mu_t,\widehat\mu_t)
+ \leq \max\{\max_{0\leq t\leq T}L^t,K\}\,r
+ =\max\{1,L^T,K\}\,r,
+\end{equation}
+where $L^0=1$, including $L=0$. For fixed $T$, the bound tends to zero.
+\end{proposition}
+\begin{proof}
+Exact P2 gives $\rho_{C,t}\leq L^t r$ and membership regularity gives
+$\kappa_C\leq Kr$, with $\sigma_C=0$. Insert these into P1. Any fixed
+leaf has only finitely many older leaves at its creation; periodic FIFO
+selections remove them, while new children cannot precede it. Thus every
+fixed leaf is eventually split. In fixed dimension, repeated longest-side
+bisection halves each coordinate after a bounded number of branch splits.
+For any target diameter there are only finitely many ancestral cells needing
+splits, and fairness eventually processes each. Hence the largest radius
+tends to zero.
+\end{proof}
+
+Upper semicontinuity alone is insufficient for this convergence statement.
+For identity dynamics, membership one at an irrational point and zero
+elsewhere is upper semicontinuous. Dyadic midpoints never encounter its peak:
+every finite midpoint approximation is zero and remains at distance one.
+This does not contradict P1, which can still return a bound of one, or P3,
+whose Lipschitz membership premise fails.
+
+The implemented solver has fixed decimal precision, maximum depth, cell and
+refinement budgets, and cooperative cancellation. Nonvanishing residuals in
+\eqref{eq:residuals} or grade errors can impose a floor on the attainable
+certificate. P3 is neither an
+arbitrary-tolerance guarantee for that finite run nor a uniform-in-time result
+or an efficiency theorem. A budget exit retains a bound without claiming the
+requested tolerance. Initialization failure has no complete certificate.
+
+\subsection{Exact nonmonotone refinement counterexample}
+At $t=0$, consider
+\begin{equation}
+ \mu_0(x)=\max\left\{
+  \tfrac12\max(0,1-|x-\tfrac12|),\
+  \max(0,1-20|x-\tfrac1{10}|)\right\}.
+\end{equation}
+The root representative is $(1/2,1/2)$, with certificate $1/2$. At the narrow
+peak top $(1/10,1)$, the approximate vertical segment is at spatial distance
+$2/5$ and vertical deficit $1/2$, giving distance $1/2$. The baseline is at
+distance one. The witness and upper bound agree: actual error is $1/2$.
+
+After one split, the representatives are $(1/4,3/8)$ and $(3/4,3/8)$.
+At the same peak top their vertical deficits are $5/8$, and the first has
+spatial distance $3/20$, so the nearest distance is $5/8$. The left cell
+certificate is also $5/8$. Actual error has increased. No rounding is involved.
+This internal example motivates retaining both the earliest best bound
+snapshot and the last completed partition; it is not asserted to be a new
+phenomenon.
+
+\section{Qualified scalar references and attributed baselines}
+\subsection{Complete positive cuts and an exact staircase bracket}
+For a tent peak of height $h>0$, width $w$ and center $c$, its positive
+$\alpha$-cut is empty for $\alpha>h$, and otherwise
+\[
+ [c-w(1-\alpha/h),c+w(1-\alpha/h)]\cap[0,1].
+\]
+The cut of the maximum of peaks is the complete union; gaps and singleton
+cores remain. The supported continuous scalar maps send each compact interval
+to an interval whose exact endpoints follow from endpoints and included
+critical points. Affine maps have none; tent and logistic maps turn at $1/2$.
+Rational arithmetic preserves these calculations. This is not a joint
+two-dimensional geometry construction.
+
+For exact positive cuts $A_j=[\mu_t]_{\alpha_j}$ with
+$0=\alpha_0<\cdots<\alpha_m=1$, set
+\[
+ s_t(x)=\max(\{\alpha_j:x\in A_j\}\cup\{0\}),\qquad
+ \delta=\max_j(\alpha_j-\alpha_{j-1}).
+\]
+Then $0\leq\mu_t-s_t\leq\delta$: the lower neighboring grid level gives a
+vertical match, including the zero baseline below the first level.
+Thus $\dE(\mu_t,s_t)\leq\delta$. If
+$d=\dE(s_t,\widehat\mu_t)$ is computed exactly,
+\begin{equation}\label{eq:bracket}
+ \max(0,d-\delta)\leq\dE(\mu_t,\widehat\mu_t)\leq\min(1,d+\delta).
+\end{equation}
+The exact-cut provenance is a premise. A caller-supplied list with valid
+level order is not thereby an exact cut trajectory of the declared problem.
+
+For completeness, the continuous staircase distance is not an endpoint raster.
+For a nonempty source cut union $A$ at height $h$ and target atoms $(p_i,g_i)$,
+\[
+ F_h(x)=\min\{h,\min_i\max(|x-p_i|,(h-g_i)_+)\}.
+\]
+Order atoms by decreasing grade and put $v_k=(h-g_k)_+$,
+$P_k=\{p_1,\ldots,p_k\}$. Then
+\begin{equation}
+ \sup_{x\in A}F_h(x)=\min\{h,\min_k\max(v_k,D(A,P_k))\}.
+\end{equation}
+Every prefix covers all points at its candidate radius, proving one inequality.
+Conversely, if the supremum is $R<h$, every point has an atom within spatial
+distance $R$ and vertical deficit $R$. The complete prefix of atoms with
+$v_i\leq R$ therefore covers $A$ at radius $R$, proving the other. This avoids
+interchanging a supremum and a minimum without justification. Equal grades
+use the full tied prefix. Empty atoms leave the baseline distance $h$.
+Empty source cuts contribute no rectangle and are skipped in this directed
+maximum; they do not acquire a positive baseline-cap contribution.
+
+For the reverse direction each atom top has distance
+\[
+ \min\{g_i,\min_{j:A_j\ne\varnothing}
+       \max(\dist(p_i,A_j),(g_i-\alpha_j)_+)\}.
+\]
+Maximize over atom tops and source rectangles. Directed interval-union
+distance needs source endpoints and target-gap midpoints inside a source
+component. For source $[0,1]$ and targets $\{0,1\}$, endpoints alone miss
+the actual maximum $1/2$ at the center.
+
+Only an analytic or verified bracket lower endpoint strictly above its
+certificate is a violation. An upper-only exceedance is inconclusive. A sampled
+grid discrepancy is not promoted to a continuous lower bound. Empty positive
+cuts retain explicit both-empty, reference-empty and approximation-empty
+statuses with absent ordinary Hausdorff distances. Weak components may be
+invisible at a small endograph scale and remain important in these diagnostics.
+
+\subsection{Published PWL core}
+The second representation independently specializes Section 4.1 of Kupka and
+Nicole Škorupová~\cite{pwl}. It splits source linear pieces at map knots,
+transports each branch and reconstructs by pointwise maximum. Exact fractions
+handle reversed branches, constant images, spikes and support-boundary jumps.
+For the eligible affine and tent maps, a complete restricted trajectory is
+exact and has error zero. An incomplete transition after a piece-budget exit
+cannot claim a full-horizon zero bound.
+
+The paper's nonlinear PSO preprocessing and published timings are not
+reproduced. Logistic and coupled maps are unavailable for this specialization.
+Unavailable rows must remain in the declared comparison. The alpha-grid and
+PWL representations incur different exact-rational work and geometry costs;
+their operation counts are not equated with CAE interval map-image calls.
+
+\section{Learned ranking and frozen experimental design}
+\subsection{Prediction is a selection heuristic}
+The learning target is the signed local horizon-bound change from a complete
+trial split. If $b_C=\max_t b_{C,t}$, an illustrative target notation is
+\[
+ G_C=b_C-\max\{b_{C_\mathrm{left}},b_{C_\mathrm{right}}\}.
+\]
+The frozen label recipe, rather than this notation alone, defines the actual
+features and target. Signed values preserve harmful splits; a gain prediction
+does not assert that refinement improves actual error. Available cell features
+are recorded with a versioned order and are computed before the trial outcome.
+The ranker influences selection while Java independently computes every child
+and certificate. Nonfinite scores and parity failures are errors, not reasons
+to accept a guessed bound.
+
+Feature means/scales and target standardization are fitted on training data
+only. Ridge regression uses regularization one. The fixed neural model has
+16 tanh hidden units and a linear output, with regularization $0.01$ and
+L-BFGS training. Model seeds are $11,23,37,51,71$. Exported weights and
+normalization are checked against Python predictions and Java inference.
+Binary floating point is allowed for heuristic scores, not for directed
+certificate bounds. No final-test feature or outcome row enters fitting,
+normalization, architecture choice or validation selection.
+
+\subsection{Cohorts, comparators and resources}
+The manifest separates 208 distinct base problems: 64 training, 24 validation
+and 120 held-out test bases. The four test regimes contain 30 bases each:
+in-distribution scalar, in-distribution two-dimensional, out-of-distribution
+scalar and out-of-distribution two-dimensional. All variants of a base remain
+in one split. The frozen final protocol supplies the executable definitions;
+the intended settings are precision 24, tolerance $0.1$, at most 512 completed
+splits, and ID horizons 2/4 versus OOD horizons 6/8.
+
+All 32 methods remain declared: uniform, maximum-bound, next-step and
+predicted-gain CAE policies; ridge; five MLP seeds; 20 random-priority seeds
+0--19; exact scalar alpha grid; and the eligible PWL core. Random controls
+share the certificate/fairness engine and are descriptive, not candidates for
+a winning seed selected on final data. The deterministic comparator is chosen
+on validation by certification count, median algorithm map images, then method
+ID. The learned family is chosen on validation by certification rate and median
+map images. Every MLP seed remains if that family is primary.
+
+Only 12 bases are preselected for timing: indices 000, 010 and 020 in each
+regime. They receive one excluded warmup and five timed repetitions; the other
+108 receive one numerical observation whose duration is retained but excluded
+from timing conclusions. All 120 bases enter certification and work analysis.
+Timings include numerical solving and post-solve verification, including
+in-solve inference. Reference preparation, label generation, training,
+diagnostics, report I/O and cold JVM startup are excluded. External workstation
+load is uncontrolled. Repetitions are repeated observations, not new problems.
+
+\subsection{Primary estimand and resampling}
+For regime $r$, base $b$, variant $v$ and retained model seed $s$, let
+$I^L_{rbvs}$ and $I^D_{rbv}$ indicate certification. The primary estimand is
+\begin{equation}
+ \widehat\Delta=\frac14\sum_{r=1}^4\frac1{n_r}\sum_{b=1}^{n_r}
+   \frac1{|V_b|}\sum_{v\in V_b}\frac1S\sum_{s=1}^S
+       (I^L_{rbvs}-I^D_{rbv}).
+\end{equation}
+Positive values favor the learned family. Budget exits, cancellations,
+numerical failures and unavailable primary requests are non-success; none is
+silently dropped. The declared analysis uses 10,000 percentile bootstrap draws,
+seed 20261117, with complete bases resampled within each regime. Model-seed
+indices are sampled once per draw and shared across all bases and regimes.
+This crossed structure retains the fact that one fitted model is used on many
+problems. Cells, time steps, refinement records and timing repetitions are not
+resampled as scientific instances. Ridge has one fit, so it supplies no estimate
+of training-seed uncertainty.
+
+Secondary learned/deterministic time and map-image ratios are conditional on
+both runs certifying and positive costs. Variant ratios are geometrically
+combined within a base/seed; the reported statistic is a median of those
+pairs. They do not establish unconditional speedup. Replicates with no eligible
+pair remain unavailable; intervals require at least 90 percent valid draws.
+Only aggregate certification is primary. Per-regime intervals and controls
+are descriptive, without multiplicity-adjusted confirmatory interpretation.
+
+Completion curves retain eligible failures in the denominator and use run
+median durations, not within-run first-hit times or Kaplan--Meier estimates.
+Training amortization is unavailable unless a complete comparable training/
+label/selection cost record is supplied and every primary timing pair certifies
+with positive mean savings. A favorable successful subset cannot justify a
+break-even forecast.
+
+\clearpage
+\section{Frozen held-out observations}
+\ifdefined\LayoutFixture
+\textbf{Layout fixture only.} No final outcomes, effects, timing values or
+experimental plots have been read or inserted. The final build requires
+saved analysis and its manifest to pass the report builder's provenance and
+cohort checks. This fixture must not be described or distributed as completed
+scientific evidence.
+\else
+\input{generated/results.tex}
+\fi
+
+\section{Interpretation and limitations}
+\subsection{The primary learned-efficiency hypothesis was not supported}
+Ridge certified 67 of 120 bases (55.83\%), whereas maximum-bound certified
+78 (65.00\%). The corresponding budget-exhausted counts are 53 and 42;
+neither primary method has another failure or unavailable status. The primary
+equal-regime difference is $-9.1667$ percentage points, with the frozen grouped
+95\% percentile interval $[-14.1667,-4.1667]$. Every one of the eleven
+discordant primary certification pairs favors maximum-bound.
+
+The ID scalar regime has a success ceiling: both policies certify all 30
+bases, so a degenerate zero bootstrap interval there does not establish
+population equivalence. ID 2D accounts for seven discordant bases, OOD scalar
+for three, and OOD 2D for one. OOD 2D has only one primary tolerance success in
+total, leaving little resolution for conditional cost comparisons under this
+budget. Its absent joint continuous reference also prevents interpreting
+noncertification as a measured large true error.
+
+Other methods remain descriptive. Uniform refinement certified 47/120 bases,
+next-step 73/120 and predicted-gain 62/120. Maximum-bound's 78/120 therefore
+also exceeds uniform's observed attainment under the same resource limits;
+this is not a complexity theorem or an additional confirmatory test. The five
+retained neural fits certified 45, 58, 49, 45 and 47 bases respectively, in
+seed order 11, 23, 37, 51 and 71. Selecting seed 23 after observing that table
+would change the question. All fits retained their iteration-cap warnings.
+The result concerns these bounded fits and protocol, not all neural networks
+or every possible learned refinement objective.
+
+\subsection{Conditional cost and a concrete resource exit}
+For the 67/120 jointly certified primary pairs, the conditional median
+map-image ratio is 1.109589 with descriptive 95\% interval
+$[1.000000,1.202470]$. On seven of twelve predefined timing pairs, the
+conditional median total-time ratio is 1.388827 with interval
+$[1.196698,1.620587]$. The other 53 work pairs and five timing pairs remain
+non-successes in the certification evidence. These ratios cannot be promoted
+to unconditional speedups, and uncontrolled workstation load limits timing
+interpretation. There is no comparable complete pipeline-cost record for
+training amortization.
+
+As a post-hoc illustration, select the lexically first base with disagreeing
+primary certification outcomes, \code{test-id-2d-000}. Maximum-bound reaches
+tolerance with 317 cells, a bound approximately 0.07594013 and 2,532 algorithm
+map images. Ridge first retains its best bound approximately 0.12303150 at
+444 cells. Its last partition has 513 cells and the same bound after
+exhausting 512 splits, with 4,100 map images overall. Both snapshots pass the
+same certificate recipe. This exposes an observed cost of different
+refinement orders without identifying which feature or training decision
+caused it. It is an illustration selected by identifier after the results,
+not an independent confirmatory endpoint or a representative sample.
+
+\subsection{What the scalar audit establishes}
+The 1,200 qualified scalar discrepancy brackets, from six bases across
+180 method runs and their time points, contain no verified lower
+endpoint above its certificate. The 72 upper-only exceedances are
+inconclusive, including uncertainty introduced by a qualified reference;
+they must not be relabeled as either proven violations or proven agreement.
+The complete audit and empty-cut statuses remain in the saved analysis.
+
+\subsection{Scope of inference}
+The experiment can support conclusions about this finite declared cohort,
+retained models and bounded numerical recipe. It cannot establish that learning
+generally improves adaptive simulation. A degenerate empirical bootstrap
+interval is not proof of zero population uncertainty. The timing cohort has
+only three bases per regime, and local timing uncertainty includes factors
+not represented by resampling. Raw per-seed and failure rows remain part of
+the evidence even when their narrative is inconvenient.
+
+Certified bounds may be conservative; exact scalar reference enclosures can
+diagnose that conservatism without constituting a general continuous proof.
+No scalar-only result validates joint two-dimensional geometry. A small
+endograph distance permits a weak component to move substantially or disappear
+above a diagnostic cut. Fixed precision and finite budgets can prevent a
+tolerance success even where the exact-arithmetic convergence argument applies.
+The qualified PWL baseline has restricted eligibility and is not evidence for
+an exact general nonlinear or multivariate solver.
+
+The verifier recomputes canonical geometry and replays the declared recipe,
+but shares trusted interval primitives with generation. It is not an
+independently implemented proof assistant. Independent exact/analytic tests
+and a second-pass internal derivation check reduce particular risks without
+removing the need for external expert review. Hashes establish consistency of
+bytes and provenance links, not authorship authentication, trustworthy timing
+or mathematical truth.
+
+\section{Reproducibility, authorship and disclosure}
+The project uses Java 21 with a checksum-pinned Gradle wrapper and dependency
+verification, Node 24 with locked frontend dependencies, and Python 3.13 with
+hash-required scientific dependencies. Six frozen model files and their parity
+fixture are public research inputs. Large evaluation/training runs are explicit
+local operations; default CI runs checks and small demonstrations only.
+The local API binds to loopback. Publishing a static report or source does not
+deploy a production solver or authorize exposing a model-execution service.
+
+Gergő Balázsfalvi is the project author and publication owner. AI coding and
+writing assistance supported implementation, mathematical exposition,
+literature-location work, tests and preparation of this study. The recorded
+independent-pass internal mathematical review was performed by an AI subagent;
+it was a second-pass model review, not external peer review or confirmation by
+a different underlying model. This report does not imply that an unaffiliated
+human expert audited the whole codebase or endorsed its scientific novelty.
+
+The source access register distinguishes complete reads, transcriptions,
+previews and metadata.
+The 2001, 2011, 2021 and 2022 full-text reviews are project records; the 1982,
+2007, 2008 and 2016 access limitations remain explicit. Failed public access searches
+do not prove that no lawful copy exists or that relevant prior art is absent.
+The defensible claim is an auditable research software implementation and a
+transparent bounded experiment, with unresolved closest-literature comparison.
+
+\ifdefined\LayoutFixture\else
+\appendix
+\section{Artifact provenance}
+\StudyEvidence
+\fi
+
+\begin{thebibliography}{9}\small
+\bibitem{zadeh} L. A. Zadeh. Fuzzy sets. \emph{Information and Control}, 8,
+338--353, 1965. \url{https://doi.org/10.1016/S0019-9958(65)90241-X}.
+\bibitem{roman} H. Román-Flores, L. C. Barros and R. C. Bassanezi. A note on Zadeh's
+extensions. 2001. \url{https://doi.org/10.1016/S0165-0114(98)00408-4}.
+\bibitem{decomposition} Y. Chalco-Cano, H. Román-Flores, M. Rojas-Medar,
+O. R. Saavedra and M. D. Jiménez-Gamero. The extension
+principle and a decomposition of fuzzy sets. 2007.
+\url{https://doi.org/10.1016/j.ins.2007.07.007}. Publisher preview/metadata only
+in the recorded review; detailed comparison remains open.
+\bibitem{decomposition2008} Y. Chalco-Cano, M. Jiménez-Gamero, H. Román-Flores and
+M. A. Rojas-Medar. An approximation to the extension principle using decomposition
+of fuzzy intervals. \emph{Fuzzy Sets and Systems}, 159(24), 3245--3258, 2008.
+\url{https://doi.org/10.1016/j.fss.2008.06.011}. Public article transcription
+inspected; printed-formula verification remains open.
+\bibitem{compact} Y. Chalco-Cano, A. D. Báez-Sánchez, H. Román-Flores and
+M. A. Rojas-Medar. On the approximation of
+compact fuzzy sets. 2011. \url{https://doi.org/10.1016/j.camwa.2010.11.018}.
+\bibitem{kupka2016} J. Kupka. On approximations of Zadeh's extension
+principle. 2016. \url{https://doi.org/10.1016/j.fss.2015.03.014}.
+Publisher preview/metadata only; full-text comparison remains open.
+\bibitem{pwl} J. Kupka and N. Škorupová. On PSO-Based Simulations of Fuzzy
+Dynamical Systems Induced by One-Dimensional Ones. \emph{Mathematics},
+9(21), 2737, 2021. \url{https://doi.org/10.3390/math9212737}.
+\bibitem{swarm} N. Škorupová, P. Raunigr and P. Bujok. Usage of Selected Swarm
+Intelligence Algorithms for Piecewise Linearization. \emph{Mathematics},
+10(5), 808, 2022. \url{https://doi.org/10.3390/math10050808}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-17",
+  "scope": "Finite-universe exact rational feasibility checks, not a continuous proof or application benchmark.",
+  "seed": 20261117,
+  "instances": 240,
+  "time_slices_checked": 1440,
+  "dimensions": [
+    1,
+    2
+  ],
+  "assertions": [
+    "Actual max-product endograph distance does not exceed the proposed grade-aware certificate.",
+    "The grade-aware certificate does not exceed the simple certificate.",
+    "Spatial radius propagation includes representative residuals."
+  ],
+  "grade_cap_strictly_tighter_time_slices": 627,
+  "negative_control": {
+    "invented_certificate": "0",
+    "actual_error": "1",
+    "finding": "A claimed radius must be verified; trusting a supplied bound is unsound."
+  },
+  "scientific_novelty": "Not established."
+}

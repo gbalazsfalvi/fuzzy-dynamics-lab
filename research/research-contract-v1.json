@@ -1,0 +1,70 @@
+{
+  "id": "foundation-contract-v1",
+  "date": "2026-11-17",
+  "status": "RESEARCH_SOFTWARE_DELIVERED_NOVELTY_GATE_OPEN",
+  "domain": "[0,1]^d",
+  "implementedMapDimensions": [
+    1,
+    2
+  ],
+  "spatialNorm": "L_INFINITY",
+  "endographProductMetric": "MAX_SPATIAL_AND_MEMBERSHIP",
+  "baseline": "entire common universe at membership zero",
+  "parameterSemantics": "exact rational text, no binary float conversion",
+  "rounding": {
+    "lower": "FLOOR",
+    "upper": "CEILING",
+    "precision": "explicit significant decimal digits"
+  },
+  "membershipComposition": "MAXIMUM",
+  "normalization": false,
+  "convergenceScope": "fixed finite horizon with whole-domain Lipschitz assumptions",
+  "claims": [
+    {
+      "id": "extension-alpha-cuts",
+      "status": "ESTABLISHED_BACKGROUND",
+      "sourceIds": [
+        "roman-flores-2001"
+      ],
+      "implementationEvidence": "Finite reference identities tested."
+    },
+    {
+      "id": "continuous-membership-variation",
+      "status": "ESTABLISHED_BACKGROUND",
+      "sourceIds": [
+        "chalco-cano-2011"
+      ],
+      "implementationEvidence": "Whole-cell ranges and global bounds for built in peak profiles."
+    },
+    {
+      "id": "cae-p1",
+      "status": "INTERNAL_DERIVATION_PENDING_COMPARISON",
+      "sourceIds": [
+        "decomposition-2007",
+        "decomposition-multivariate-2008",
+        "kupka-2016"
+      ],
+      "implementationEvidence": "Canonical P1 snapshots and exact coverage replay are implemented. All 3700 eligible final numerical runs passed saved-artifact Java replay. The scalar audit found no verified violation in 1200 bracket rows from six bases, with 72 upper-only inconclusive exceedances. Internal P1 to P3 review is documented; external mathematical review and closest printed full-text comparison remain open."
+    },
+    {
+      "id": "learned-efficiency",
+      "status": "FROZEN_PRIMARY_IMPROVEMENT_NOT_SUPPORTED",
+      "implementationEvidence": "Validation-selected ridge certified 67/120 held-out bases versus maximum-bound 78/120. The equal-regime difference is -9.1667 percentage points with grouped 95% interval [-14.1667,-4.1667]. Conditional work/time comparisons use 67/120 and 7/12 pairs respectively. This is evidence about the frozen configuration, not machine learning as a class."
+    },
+    {
+      "id": "scientific-novelty",
+      "status": "NOT_ESTABLISHED",
+      "remaining": "Full closest-work comparison and independent mathematical review."
+    }
+  ],
+  "milestones": {
+    "00": "PARTIAL_FULL_TEXT_EXIT_GATE_OPEN",
+    "01": "IMPLEMENTED_AND_VERIFIED",
+    "02": "IMPLEMENTED_AND_VERIFIED_INTERNAL_REVIEW_ONLY",
+    "03": "COMPARISONS_IMPLEMENTED_PILOT_VERIFIED",
+    "04": "MODELS_FROZEN_AND_PARITY_VERIFIED",
+    "05": "FINAL_COHORT_REPLAYED_AND_FROZEN_ANALYSIS_COMPLETE",
+    "06": "PACKAGED_LOCAL_WORKBENCH_AND_BROWSER_FLOWS_VERIFIED",
+    "07": "STUDY_PDF_AND_BILINGUAL_PRESENTATION_ASSETS_DELIVERED"
+  }
+}

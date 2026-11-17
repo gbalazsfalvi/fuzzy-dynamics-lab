@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-17",
+  "sources": [
+    {
+      "id": "kloeden-1982",
+      "title": "Fuzzy dynamical systems",
+      "year": 1982,
+      "doi": "10.1016/0165-0114(82)90056-2",
+      "url": "https://doi.org/10.1016/0165-0114(82)90056-2",
+      "access": "ABSTRACT_AND_METADATA",
+      "inspected": [
+        "abstract",
+        "author record",
+        "repository metadata"
+      ],
+      "fullTextReviewed": false,
+      "reviewDate": "2026-11-17"
+    },
+    {
+      "id": "roman-flores-2001",
+      "title": "A note on Zadeh's extensions",
+      "year": 2001,
+      "doi": "10.1016/S0165-0114(98)00408-4",
+      "url": "https://victorayala.cl/wp-content/uploads/88ref.pdf",
+      "access": "FULL_TEXT",
+      "fullTextReviewed": true,
+      "pages": 5,
+      "inspected": [
+        "definitions",
+        "Theorem 2.1",
+        "Theorem 3.3",
+        "Theorem 4.1",
+        "conclusion"
+      ],
+      "application": "Positive alpha-cut identities and metric-specific approximation assumptions.",
+      "reviewDate": "2026-11-17",
+      "localSourceSha256": "dbde55ebf9d6f91d05b3dc59365f7ea047d268f278347e7b46de71d3e8456f18"
+    },
+    {
+      "id": "decomposition-2007",
+      "title": "The extension principle and a decomposition of fuzzy sets",
+      "year": 2007,
+      "doi": "10.1016/j.ins.2007.07.007",
+      "url": "https://doi.org/10.1016/j.ins.2007.07.007",
+      "access": "PUBLISHER_PREVIEW",
+      "fullTextReviewed": false,
+      "inspected": [
+        "abstract",
+        "introduction",
+        "section previews",
+        "university metadata"
+      ],
+      "remaining": "Full algorithm, assumptions, and proof comparison.",
+      "reviewDate": "2026-11-17"
+    },
+    {
+      "id": "decomposition-multivariate-2008",
+      "title": "An approximation to the extension principle using decomposition of fuzzy intervals",
+      "year": 2008,
+      "doi": "10.1016/j.fss.2008.06.011",
+      "url": "https://investigadores.uta.cl/en/publications/an-approximation-to-the-extension-principle-using-decomposition-o/",
+      "metadataUrl": "https://api.crossref.org/works/10.1016/j.fss.2008.06.011",
+      "publicTranscriptionUrl": "https://www.academia.edu/25777805/An_approximation_to_the_extension_principle_using_decomposition_of_fuzzy_intervals",
+      "access": "PUBLIC_ARTICLE_TRANSCRIPTION_INSPECTED",
+      "fullTextReviewed": false,
+      "inspected": [
+        "university abstract",
+        "University of Seville author catalogue",
+        "Crossref bibliographic metadata",
+        "public article transcription: Sections 2 to 5 and references; mathematical OCR partly damaged"
+      ],
+      "application": "Levelwise D metric, Cartesian fuzzy-interval inputs and local tangent approximation are visible in the transcription.",
+      "remaining": "Verify printed formulas/constants and complete comparison; fullTextReviewed stays false because mathematical OCR is not a checked facsimile. No baseline reproduction.",
+      "reviewDate": "2026-11-17"
+    },
+    {
+      "id": "chalco-cano-2011",
+      "title": "On the approximation of compact fuzzy sets",
+      "year": 2011,
+      "doi": "10.1016/j.camwa.2010.11.018",
+      "url": "https://victorayala.cl/wp-content/uploads/36ref.pdf",
+      "access": "FULL_TEXT",
+      "fullTextReviewed": true,
+      "pages": 9,
+      "inspected": [
+        "definitions in Section 2",
+        "counterexample and Propositions 1 to 3",
+        "Theorem 2",
+        "Proposition 4",
+        "differentiable approximation section",
+        "conclusion"
+      ],
+      "application": "Require variation bounds over the whole relevant domain; distinguish support-only Lipschitz assumptions.",
+      "reviewDate": "2026-11-17",
+      "localSourceSha256": "0331ded4e5d658bafb5fe3b2163c2b335cf630aec314c88a6432897c0da214fb"
+    },
+    {
+      "id": "kupka-2016",
+      "title": "On approximations of Zadeh's extension principle",
+      "year": 2016,
+      "doi": "10.1016/j.fss.2015.03.014",
+      "url": "https://doi.org/10.1016/j.fss.2015.03.014",
+      "access": "PUBLISHER_PREVIEW",
+      "fullTextReviewed": false,
+      "inspected": [
+        "abstract",
+        "introduction",
+        "section previews",
+        "author portal record 58440"
+      ],
+      "remaining": "Full procedure, metric convention, and theorem constants.",
+      "reviewDate": "2026-11-17"
+    },
+    {
+      "id": "kupka-skorupova-2021",
+      "title": "On PSO-Based Simulations of Fuzzy Dynamical Systems Induced by One-Dimensional Ones",
+      "year": 2021,
+      "doi": "10.3390/math9212737",
+      "url": "https://www.mdpi.com/2227-7390/9/21/2737",
+      "access": "FULL_HTML",
+      "fullTextReviewed": true,
+      "inspected": [
+        "main article",
+        "Section 1.2",
+        "Section 4.1 pseudocode",
+        "Section 5 comparison",
+        "Section 6 conclusion"
+      ],
+      "application": "One dimensional baseline, maxima at collisions, sampled reference qualification.",
+      "reviewDate": "2026-11-17"
+    },
+    {
+      "id": "skorupova-2022",
+      "title": "Usage of Selected Swarm Intelligence Algorithms for Piecewise Linearization",
+      "year": 2022,
+      "doi": "10.3390/math10050808",
+      "url": "https://www.mdpi.com/2227-7390/10/5/808",
+      "access": "FULL_HTML",
+      "fullTextReviewed": true,
+      "inspected": [
+        "main article",
+        "Section 2 definitions",
+        "automatic tuning",
+        "Section 6 conclusion"
+      ],
+      "application": "Adaptive scalar preprocessing is prior art; do not confuse graphs with two state variable dynamics.",
+      "reviewDate": "2026-11-17"
+    }
+  ],
+  "accessGapStatus": "OPEN",
+  "accessGapIds": [
+    "decomposition-2007",
+    "kupka-2016",
+    "decomposition-multivariate-2008"
+  ],
+  "historicalFullTextOutstanding": [
+    "kloeden-1982"
+  ],
+  "accessAudit": {
+    "publisherFullText": "inaccessible in this environment",
+    "openAccessLookup": "OpenAlex reported no open full text location for the 2007 and 2016 papers",
+    "authorPortal": "Kupka publication record found; no accessible full article obtained"
+  },
+  "pdfRedistribution": false
+}

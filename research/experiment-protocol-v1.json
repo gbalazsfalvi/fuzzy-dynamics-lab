@@ -1,0 +1,190 @@
+{
+  "protocolId": "fuzzy-dynamics-lab-proposed-v1",
+  "date": "2026-11-17",
+  "status": "PROPOSED_NOT_EXECUTABLE",
+  "method": "Certified Adaptive Extension",
+  "scope": {
+    "time": "discrete",
+    "domain": "[0,1]^d",
+    "dimensions": [
+      1,
+      2
+    ],
+    "initialMembership": "continuous with certified cell variation bounds",
+    "metric": "Hausdorff distance of endographs in the max product metric with spatial infinity norm",
+    "zeroBaseline": "entire common domain at membership zero"
+  },
+  "benchmarks": [
+    {
+      "id": "affine",
+      "dimension": 1,
+      "parameters": {
+        "a": [
+          "1/4",
+          "3/4",
+          "19/20"
+        ]
+      },
+      "horizons": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        32
+      ]
+    },
+    {
+      "id": "tent",
+      "dimension": 1,
+      "parameters": {
+        "slope": "2"
+      },
+      "horizons": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        32
+      ]
+    },
+    {
+      "id": "logistic",
+      "dimension": 1,
+      "parameters": {
+        "r": [
+          "16/5",
+          "37/10",
+          "4"
+        ]
+      },
+      "horizons": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        32
+      ]
+    },
+    {
+      "id": "coupled-tent",
+      "dimension": 2,
+      "parameters": {
+        "coupling": [
+          "1/10",
+          "1/4"
+        ]
+      },
+      "horizons": [
+        1,
+        2,
+        4,
+        8
+      ]
+    }
+  ],
+  "membershipFamilies": [
+    "single-peak",
+    "separated-peaks",
+    "narrow-peak",
+    "weak-distant-peak",
+    "two-dimensional-separated-peaks"
+  ],
+  "weakPeakHeight": "1/100",
+  "alphaDiagnostics": [
+    "1/200",
+    "1/100",
+    "1/20",
+    "1/10",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "tolerances": [
+    "1/10",
+    "1/20",
+    "1/100"
+  ],
+  "methods": [
+    "uniform",
+    "maximum-bound",
+    "deterministic-cost-aware",
+    "random-adaptive",
+    "learned-cae",
+    "alpha-cut",
+    "published-method-eligible-cases"
+  ],
+  "fairness": {
+    "everyNthSelection": 5,
+    "fallback": "oldest-active-cell",
+    "splitRule": "longest-side dyadic bisection with rotating ties"
+  },
+  "pilotBudgets": {
+    "wallTimeSeconds": [
+      1,
+      10,
+      60
+    ],
+    "hardLimitSeconds": 300,
+    "workerMemoryGiB": 4,
+    "numericalThreads": 1,
+    "calibration": "may change before the final protocol freeze",
+    "mainEvaluationCpuHours": 72,
+    "suiteAllocation": "stratified suite frozen after pilot; not a full Cartesian sweep"
+  },
+  "sampling": {
+    "minimumDistinctTestInstancesPerClaimedDimensionAndRegime": 30,
+    "trainedModelSeeds": 5,
+    "randomRefinementSeeds": 20,
+    "timingRepetitionsAfterWarmup": 5,
+    "splitUnit": "base problem: dynamics parameters, membership parameters, and dimension; all horizon and tolerance variants stay together",
+    "partitions": [
+      "train",
+      "validation",
+      "test-in-distribution",
+      "test-out-of-distribution"
+    ],
+    "modelSelection": "training and validation only",
+    "timingCohort": "stratified cohort selected during the pilot; not every combination"
+  },
+  "referenceLabels": [
+    "ANALYTIC",
+    "VERIFIED_ENCLOSURE",
+    "CONVERGENCE_STUDY",
+    "EMPIRICAL_GRID"
+  ],
+  "resultStatuses": [
+    "CERTIFIED",
+    "BUDGET_EXHAUSTED",
+    "UNSUPPORTED_ASSUMPTIONS",
+    "NUMERICAL_FAILURE",
+    "CANCELLED"
+  ],
+  "analysis": {
+    "primaryComparator": "strongest deterministic adaptive method selected on validation",
+    "uncertainty": "95 percent paired bootstrap over instances, with training seed hierarchy",
+    "timeouts": "retained as incomplete outcomes",
+    "practicalImprovementTarget": {
+      "metric": "median end-to-end time reduction",
+      "fraction": 0.2,
+      "status": "decision threshold, not a result"
+    }
+  },
+  "freezeRequirements": [
+    "lock benchmark instances",
+    "lock data splits",
+    "lock analysis code",
+    "lock runtime and numeric policy",
+    "freeze model and hyperparameters",
+    "record configuration and code hashes"
+  ],
+  "claims": {
+    "certificate": "internal mathematical derivation pending review and implementation",
+    "speedup": "not measured",
+    "novelty": "not established",
+    "publication": "local planning only"
+  }
+}

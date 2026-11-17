@@ -1,0 +1,21 @@
+* text=auto eol=lf
+*.java text eol=lf
+*.kts text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.py text eol=lf
+*.properties text eol=lf
+gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary
+
+# Preserve byte-bound scientific inputs across checkout platforms. These remain
+# readable text, but Git must not rewrite line endings underneath recorded hashes.
+*.lockfile -text
+gradle/verification-metadata.xml -text
+learning/requirements.lock -text
+learning/models/*.json -text
+research/protocols/*.json -text
+web/public/results.json -text
+web/public/evidence/* -text

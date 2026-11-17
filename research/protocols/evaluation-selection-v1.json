@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "evaluation-selection-v1",
+  "date": "2026-11-17",
+  "stage": "FROZEN_BEFORE_HELD_OUT_RESULTS",
+  "primaryDeterministicMethod": "maximum-bound",
+  "primaryLearnedFamily": "ridge",
+  "primaryLearningMethodIds": [
+    "ridge"
+  ],
+  "deterministicValidationScores": {
+    "uniform": {
+      "certificationRate": 0.5,
+      "medianMapImages": 2560.0
+    },
+    "maximum-bound": {
+      "certificationRate": 0.7083333333333334,
+      "medianMapImages": 738.0
+    },
+    "next-step": {
+      "certificationRate": 0.7083333333333334,
+      "medianMapImages": 804.0
+    },
+    "predicted-gain": {
+      "certificationRate": 0.6666666666666666,
+      "medianMapImages": 854.0
+    }
+  },
+  "learnedValidationScores": {
+    "ridge": {
+      "certificationRate": 0.6666666666666666,
+      "medianMapImages": 838.0
+    },
+    "mlp": {
+      "certificationRate": 0.6583333333333333,
+      "medianMapImages": 1094.0
+    }
+  },
+  "validationManifestSha256": "af1c6608f2a80198ec3873e9cde0bebfd80dc2bfec0d3ec0a2cfb954022c464b",
+  "baseSplitManifestSha256": "0bf5c09559d77af2f45fc3a1c969ad7ccc52bda883800e5b5dd389bfa798fc27",
+  "analysisPlanSha256": "0019e4b6bf78b47741ec19bab4f40652160c4e6446ab3a03b8c630fde62bf3ba",
+  "analysisCodeSha256": "4556931094e2ad174637fe904b367b85ffe70501fc1f3ec577f53524a2286d63",
+  "modelSha256": {
+    "ridge": "64d839932913a7792634feaf605113ed2725367b21adbaa019313fbe042fe209",
+    "mlp-seed-11": "2027c498e6b1f2f0ba42d7e92c4445e4dbc15242d605e800029f38bba07ae631",
+    "mlp-seed-23": "a17a95fff32e1db2da3393c008f3f979debbf992e2369fc1506dc93c82ddeaa0",
+    "mlp-seed-37": "d1dbac0c084bdadb7dece22d3c4f494a9ded06749a9b011a94483db9cb23e15a",
+    "mlp-seed-51": "7ad1385fc53c51edf880e945ea1e432ede90f7d1acaf764f667d5bb95d07f654",
+    "mlp-seed-71": "ebde7d481f0fa887796fce16142e0a95411cac6da7b8e9bb3ed43ef2a25f4c8e"
+  },
+  "timingCohortBaseProblems": [
+    "test-id-1d-000",
+    "test-id-1d-010",
+    "test-id-1d-020",
+    "test-id-2d-000",
+    "test-id-2d-010",
+    "test-id-2d-020",
+    "test-ood-1d-000",
+    "test-ood-1d-010",
+    "test-ood-1d-020",
+    "test-ood-2d-000",
+    "test-ood-2d-010",
+    "test-ood-2d-020"
+  ],
+  "selectionRule": "Highest validation certification rate, then lowest median map interval work; all MLP seeds retained."
+}

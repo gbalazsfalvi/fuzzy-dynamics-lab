@@ -1,0 +1,19 @@
+.gradle/
+**/build/
+artifacts/
+output/
+.idea/
+.vscode/
+*.iml
+.venv/
+__pycache__/
+*.pyc
+# Source PDFs and extracted text remain in the separate local research cache.
+research/sources/
+.local/
+docs/PUBLICATION_HANDOFF.md
+docs/LOCAL_DELIVERY_LEDGER.md
+docs/RESEARCH_STUDY_DRAFT.md
+web/artifacts/
+web/test-results/
+web/playwright-report/

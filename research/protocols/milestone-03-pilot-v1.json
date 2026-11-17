@@ -1,0 +1,437 @@
+{
+  "id": "milestone-03-pilot-v1",
+  "date": "2026-11-17",
+  "stage": "EXPLORATORY_PILOT",
+  "precision": 24,
+  "tolerances": [
+    "0.2",
+    "0.1"
+  ],
+  "maxRefinements": 512,
+  "maxCells": 513,
+  "maxDepth": 24,
+  "fairnessPeriod": 5,
+  "maxPwlPieces": 4096,
+  "warmupRepetitions": 1,
+  "timingRepetitions": 5,
+  "orderSeed": 17112026,
+  "referenceLevels": 64,
+  "diagnosticLevels": [
+    "1/200",
+    "1/100",
+    "1/20",
+    "1/10",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "methods": [
+    {
+      "id": "uniform",
+      "kind": "CAE",
+      "strategy": "UNIFORM"
+    },
+    {
+      "id": "maximum-bound",
+      "kind": "CAE",
+      "strategy": "MAXIMUM_BOUND"
+    },
+    {
+      "id": "next-step",
+      "kind": "CAE",
+      "strategy": "NEXT_STEP_BOUND"
+    },
+    {
+      "id": "predicted-gain",
+      "kind": "CAE",
+      "strategy": "PREDICTED_GAIN_PER_WORK"
+    },
+    {
+      "id": "alpha-grid",
+      "kind": "ALPHA_GRID",
+      "strategy": null
+    },
+    {
+      "id": "published-pwl-core",
+      "kind": "PUBLISHED_PWL_CORE",
+      "strategy": null
+    }
+  ],
+  "problems": [
+    {
+      "id": "affine-fast-single",
+      "baseProblemId": "affine-fast-single",
+      "qualifiedReference": true,
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "2/5"
+            ],
+            "width": "1/5",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "affine-slow-weak",
+      "baseProblemId": "affine-slow-weak",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "19/20",
+        "peaks": [
+          {
+            "center": [
+              "1/5"
+            ],
+            "width": "1/10",
+            "height": "1"
+          },
+          {
+            "center": [
+              "4/5"
+            ],
+            "width": "1/8",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "affine-separated",
+      "baseProblemId": "affine-separated",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "1/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "affine-narrow",
+      "baseProblemId": "affine-narrow",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "AFFINE_CONTRACTION",
+        "parameter": "3/4",
+        "peaks": [
+          {
+            "center": [
+              "1/3"
+            ],
+            "width": "1/16",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "tent-single",
+      "baseProblemId": "tent-single",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "2/5"
+            ],
+            "width": "1/5",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "tent-weak",
+      "baseProblemId": "tent-weak",
+      "qualifiedReference": true,
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "1/5"
+            ],
+            "width": "1/10",
+            "height": "1"
+          },
+          {
+            "center": [
+              "4/5"
+            ],
+            "width": "2/25",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "tent-separated",
+      "baseProblemId": "tent-separated",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "1/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "tent-narrow",
+      "baseProblemId": "tent-narrow",
+      "qualifiedReference": true,
+      "definition": {
+        "map": "TENT",
+        "parameter": null,
+        "peaks": [
+          {
+            "center": [
+              "1/3"
+            ],
+            "width": "1/16",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "logistic-low-single",
+      "baseProblemId": "logistic-low-single",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "16/5",
+        "peaks": [
+          {
+            "center": [
+              "2/5"
+            ],
+            "width": "1/5",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "logistic-weak",
+      "baseProblemId": "logistic-weak",
+      "qualifiedReference": true,
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "1/5"
+            ],
+            "width": "1/10",
+            "height": "1"
+          },
+          {
+            "center": [
+              "4/5"
+            ],
+            "width": "1/8",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "logistic-separated",
+      "baseProblemId": "logistic-separated",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "4",
+        "peaks": [
+          {
+            "center": [
+              "1/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4"
+            ],
+            "width": "1/8",
+            "height": "1"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "logistic-narrow",
+      "baseProblemId": "logistic-narrow",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "LOGISTIC",
+        "parameter": "37/10",
+        "peaks": [
+          {
+            "center": [
+              "1/3"
+            ],
+            "width": "1/16",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "coupled-mild-separated",
+      "baseProblemId": "coupled-mild-separated",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "1/4",
+              "3/4"
+            ],
+            "width": "1/5",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4",
+              "1/4"
+            ],
+            "width": "3/20",
+            "height": "1/2"
+          }
+        ],
+        "horizon": 2
+      }
+    },
+    {
+      "id": "coupled-long-separated",
+      "baseProblemId": "coupled-long-separated",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "1/4",
+              "3/4"
+            ],
+            "width": "1/5",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4",
+              "1/4"
+            ],
+            "width": "3/20",
+            "height": "1/2"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "coupled-weak",
+      "baseProblemId": "coupled-weak",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/10",
+        "peaks": [
+          {
+            "center": [
+              "1/4",
+              "3/4"
+            ],
+            "width": "1/5",
+            "height": "1"
+          },
+          {
+            "center": [
+              "3/4",
+              "1/4"
+            ],
+            "width": "3/20",
+            "height": "1/100"
+          }
+        ],
+        "horizon": 4
+      }
+    },
+    {
+      "id": "coupled-narrow",
+      "baseProblemId": "coupled-narrow",
+      "qualifiedReference": false,
+      "definition": {
+        "map": "COUPLED_TENT",
+        "parameter": "1/4",
+        "peaks": [
+          {
+            "center": [
+              "1/3",
+              "2/3"
+            ],
+            "width": "1/8",
+            "height": "1"
+          }
+        ],
+        "horizon": 2
+      }
+    }
+  ]
+}

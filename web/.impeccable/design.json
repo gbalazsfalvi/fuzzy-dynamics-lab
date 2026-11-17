@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T09:31:00Z",
+  "title": "Design System: Fuzzy Dynamics Lab workbench",
+  "extensions": {
+    "colorMeta": {"primary":{"role":"primary","displayName":"Petrol structure"},"certified":{"role":"secondary","displayName":"Certificate teal"},"reference":{"role":"tertiary","displayName":"Enclosure ochre"}},
+    "shadows": [],
+    "motion": [{"name":"active-job","value":"pulse 1.6s ease-in-out infinite","purpose":"Lifecycle indication only; disabled for reduced motion."}],
+    "breakpoints": [{"name":"mobile","value":"640px"},{"name":"compact","value":"1000px"},{"name":"wide","value":"1550px"}]
+  },
+  "components": [
+    {"name":"Run action","kind":"button","refersTo":"button-primary","description":"Submit a bounded numerical experiment.","html":"<button class=\"ds-run\">Run experiment</button>","css":".ds-run{font:13px 'IBM Plex Sans',sans-serif;background:#193f46;color:white;height:43px;padding:0 15px;border:1px solid #193f46;border-radius:3px}.ds-run:hover{background:#24545a}.ds-run:focus-visible{outline:2px solid #a36e18;outline-offset:3px}"},
+    {"name":"Secondary action","kind":"button","description":"Export evidence or reconnect.","html":"<button class=\"ds-secondary\">Export job JSON</button>","css":".ds-secondary{font:13px 'IBM Plex Sans',sans-serif;color:#233638;background:white;border:1px solid #dce2de;border-radius:3px;padding:9px 12px}.ds-secondary:hover{background:#edf2ed}.ds-secondary:focus-visible{outline:2px solid #a36e18;outline-offset:3px}"},
+    {"name":"Numerical input","kind":"input","description":"Decimal or bounded integer setting.","html":"<label class=\"ds-label\">Tolerance ε<input class=\"ds-input\" value=\"0.1\" /></label>","css":".ds-label{display:grid;gap:7px;font:12px 'IBM Plex Sans',sans-serif;color:#233638}.ds-input{font:12px 'IBM Plex Mono',monospace;background:white;color:#233638;border:1px solid #bac6be;border-radius:3px;height:38px;padding:7px 9px;caret-color:#1a665e}.ds-input:focus-visible{outline:2px solid #a36e18;outline-offset:3px}"},
+    {"name":"Application navigation","kind":"nav","description":"Workbench and evidence surfaces.","html":"<nav class=\"ds-nav\"><a href=\"#\">Workbench</a><a href=\"#\">Saved evidence</a></nav>","css":".ds-nav{display:flex;gap:28px;background:#193f46;padding:18px;font:14px 'IBM Plex Sans',sans-serif}.ds-nav a{color:#d4e0da;text-decoration:none;text-underline-offset:6px}.ds-nav a:hover{color:white;text-decoration:underline}.ds-nav a:focus-visible{outline:2px solid #d5bc7f;outline-offset:3px}"},
+    {"name":"Certified state","kind":"chip","description":"Numerical outcome, separate from job lifecycle.","html":"<span class=\"ds-status\">Certified</span>","css":".ds-status{display:inline-block;font:10px 'IBM Plex Sans',sans-serif;color:#1a665e;background:#eaf3eb;border:1px solid #b6cfbd;padding:5px 8px}"},
+    {"name":"Scientific panel","kind":"card","description":"A ruled observation surface.","html":"<section class=\"ds-panel\"><h2>Transported finite state</h2><p>Discrete representatives and directed reachable enclosures</p></section>","css":".ds-panel{background:white;color:#233638;border:1px solid #dce2de;padding:24px}.ds-panel h2{font:500 18px 'IBM Plex Sans',sans-serif;margin:0;letter-spacing:-.02em}.ds-panel p{font:11px/1.6 'IBM Plex Sans',sans-serif;color:#596963;margin:5px 0 0}"}
+  ],
+  "narrative": {
+    "northStar":"The inspectable research instrument",
+    "overview":"Mode: Operate. Direction: a paper-and-ink research instrument with precise ruled plots, a stable experiment rail, and a wide observation canvas.",
+    "rules":[{"name":"The Domain Rule","body":"Spatial and membership axes retain the declared unit domain. Two-dimensional spatial plots use equal axis scaling. Finite-state points render above the enclosure layer. No viewport or data fit changes the scientific domain.","section":"layout"}],
+    "dos":["Do plot finite representatives as points or stems.","Do retain exact API strings in the numerical inspector and export.","Do explain scope and unavailable reference quantities beside the evidence."],
+    "donts":["Don't interpolate finite representatives into a continuous membership curve.","Don't use neon, purple, gradients, or decorative scientific imagery.","Don't turn a resource exit into a success label."]
+  }
+}

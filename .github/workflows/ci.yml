@@ -1,0 +1,115 @@
+name: Research software checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Java 21
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Node 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '24'
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.13'
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6
+        with:
+          validate-wrappers: true
+          cache-disabled: true
+          dependency-graph: disabled
+
+      - name: Check pinned distribution and record frozen models
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          properties = Path('gradle/wrapper/gradle-wrapper.properties').read_text()
+          assert 'distributionSha256Sum=df67a32e86e3276d011735facb1535f64d0d88df84fa87521e90becc2d735444' in properties
+          assert 'gradle-9.2.0-bin.zip' in properties
+          models = sorted(Path('learning/models').glob('mlp-seed-*.json'))
+          assert len(models) == 5
+          models += [Path('learning/models/ridge.json'), Path('learning/models/parity-cases.json')]
+          hashes = {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in models}
+          Path(os.environ['RUNNER_TEMP'], 'frozen-model-hashes.json').write_text(json.dumps(hashes))
+          PY
+
+      - name: Install locked Python dependencies
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r learning/requirements.lock
+
+      - name: Run Python fixture and model contract tests
+        run: |
+          python -m unittest discover -s learning -p 'test_*.py' -v
+          python -m unittest discover -s analysis -p 'test_*.py' -v
+          python -m unittest discover -s tools -p 'test_*.py' -v
+          python -m unittest discover -s research/report -p 'test_*.py' -v
+
+      - name: Build and check Java API and React workbench
+        shell: bash
+        run: bash ./gradlew --no-daemon --dependency-verification=strict clean build
+
+      - name: Check workbench formatting
+        working-directory: web
+        run: npm run format:check
+
+      - name: Run small foundation and CAE demonstrations
+        shell: bash
+        run: bash ./gradlew --no-daemon --dependency-verification=strict foundationDemo caeDemo
+
+      - name: Verify saved CAE evidence without regenerating it
+        shell: bash
+        run: bash ./gradlew --no-daemon --dependency-verification=strict verifyCaeDemo
+
+      - name: Confirm frozen models and lockfiles are unchanged
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          before = json.loads(Path(os.environ['RUNNER_TEMP'], 'frozen-model-hashes.json').read_text())
+          for name, expected in before.items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest() == expected, name
+          PY
+          git diff --exit-code -- learning/models learning/requirements.lock web/package-lock.json gradle/verification-metadata.xml '**/gradle.lockfile' settings-gradle.lockfile
+
+      # Large comparison, label generation, training, validation and held-out
+      # evaluation are intentional local research runs, never default CI jobs.
+      # No artifact upload or deployment step includes workstation/cache data.

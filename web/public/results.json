@@ -1,0 +1,376 @@
+{
+  "title": "Frozen held-out comparison",
+  "scope": "120 base problems · four regimes · 32 methods · tolerance 0.1",
+  "generatedAtUtc": "2026-11-17T12:38:21.496820+00:00",
+  "sourceSha256": "5fe3555edfc33b1e475e6b0af908818e4495b7931361e345b262e25a5a7cb76c",
+  "protocolSha256": "4157945607b052266e176b147e2bd332b4e8f6085796f37756122935165ae144",
+  "verification": {
+    "status": "PASS",
+    "declaredRunCount": 3840,
+    "verifiedRunCount": 3700,
+    "manifestSha256": "7647369b5bb135f87345888ae3b71397919144359a81f8953c62524a9d5a3af1",
+    "sourceSha256": "5fe3555edfc33b1e475e6b0af908818e4495b7931361e345b262e25a5a7cb76c",
+    "protocolSha256": "4157945607b052266e176b147e2bd332b4e8f6085796f37756122935165ae144",
+    "protocolFileSha256": "20415af5f1e7206ee18ac0c2125084635458d651b93eed43f5d850a61469e839"
+  },
+  "summary": "Primary ridge minus maximum-bound certification difference: -9.167 percentage points (95% grouped percentile interval [-14.167, -4.167]). The table shows the validation-frozen primary methods. Complete tables retain all five MLP seeds, twenty random-priority controls, resource exits and unavailable methods. Work/time ratios are conditional on paired certification; repeated timing uses only twelve preselected bases.",
+  "comparisons": [
+    {
+      "Regime": "ID-1D",
+      "Method": "maximum-bound",
+      "Certified": "30/30",
+      "Budget_exhausted": 0,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "ID-1D",
+      "Method": "ridge",
+      "Certified": "30/30",
+      "Budget_exhausted": 0,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "ID-2D",
+      "Method": "maximum-bound",
+      "Certified": "17/30",
+      "Budget_exhausted": 13,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "ID-2D",
+      "Method": "ridge",
+      "Certified": "10/30",
+      "Budget_exhausted": 20,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "OOD-1D",
+      "Method": "maximum-bound",
+      "Certified": "30/30",
+      "Budget_exhausted": 0,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "OOD-1D",
+      "Method": "ridge",
+      "Certified": "27/30",
+      "Budget_exhausted": 3,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "OOD-2D",
+      "Method": "maximum-bound",
+      "Certified": "1/30",
+      "Budget_exhausted": 29,
+      "Other_failures": 0,
+      "Unavailable": 0
+    },
+    {
+      "Regime": "OOD-2D",
+      "Method": "ridge",
+      "Certified": "0/30",
+      "Budget_exhausted": 30,
+      "Other_failures": 0,
+      "Unavailable": 0
+    }
+  ],
+  "allSavedEffects": [
+    {
+      "baseProblems": 120,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 67,
+      "ci95": [
+        -0.14166666666666666,
+        -0.04166666666666667
+      ],
+      "declaredPairs": 120,
+      "endpoint": "certificationDifference",
+      "estimate": -0.09166666666666667,
+      "interpretation": "learned minus deterministic; equal regime/base/seed weights",
+      "modelSeeds": 1,
+      "scope": "all",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 30,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "declaredPairs": 30,
+      "endpoint": "certificationDifference",
+      "estimate": 0.0,
+      "interpretation": "learned minus deterministic; equal regime/base/seed weights",
+      "modelSeeds": 1,
+      "scope": "id-1d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 10,
+      "ci95": [
+        -0.4,
+        -0.1
+      ],
+      "declaredPairs": 30,
+      "endpoint": "certificationDifference",
+      "estimate": -0.23333333333333334,
+      "interpretation": "learned minus deterministic; equal regime/base/seed weights",
+      "modelSeeds": 1,
+      "scope": "id-2d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 27,
+      "ci95": [
+        -0.23333333333333334,
+        0.0
+      ],
+      "declaredPairs": 30,
+      "endpoint": "certificationDifference",
+      "estimate": -0.1,
+      "interpretation": "learned minus deterministic; equal regime/base/seed weights",
+      "modelSeeds": 1,
+      "scope": "ood-1d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 0,
+      "ci95": [
+        -0.1,
+        0.0
+      ],
+      "declaredPairs": 30,
+      "endpoint": "certificationDifference",
+      "estimate": -0.03333333333333333,
+      "interpretation": "learned minus deterministic; equal regime/base/seed weights",
+      "modelSeeds": 1,
+      "scope": "ood-2d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 12,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 7,
+      "ci95": [
+        1.1966976319296139,
+        1.620587065724699
+      ],
+      "declaredPairs": 12,
+      "endpoint": "conditionalTimeRatio",
+      "estimate": 1.3888265571831704,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "all",
+      "usablePairs": 7,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 3,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 3,
+      "ci95": [
+        0.9110245114098094,
+        1.5389125105112929
+      ],
+      "declaredPairs": 3,
+      "endpoint": "conditionalTimeRatio",
+      "estimate": 1.0045687066760574,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "id-1d",
+      "usablePairs": 3,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 3,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 1,
+      "ci95": null,
+      "declaredPairs": 3,
+      "endpoint": "conditionalTimeRatio",
+      "estimate": 1.2070674906094754,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "id-2d",
+      "usablePairs": 1,
+      "validBootstrapReplicates": 7064
+    },
+    {
+      "baseProblems": 3,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 3,
+      "ci95": [
+        1.3888265571831704,
+        5.197386748551711
+      ],
+      "declaredPairs": 3,
+      "endpoint": "conditionalTimeRatio",
+      "estimate": 1.702261620938105,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "ood-1d",
+      "usablePairs": 3,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 3,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 0,
+      "ci95": null,
+      "declaredPairs": 3,
+      "endpoint": "conditionalTimeRatio",
+      "estimate": null,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "ood-2d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 0
+    },
+    {
+      "baseProblems": 120,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 67,
+      "ci95": [
+        1.0,
+        1.202470421906392
+      ],
+      "declaredPairs": 120,
+      "endpoint": "conditionalMapImageRatio",
+      "estimate": 1.1095890410958904,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "all",
+      "usablePairs": 67,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 30,
+      "ci95": [
+        1.0,
+        1.1446821609973834
+      ],
+      "declaredPairs": 30,
+      "endpoint": "conditionalMapImageRatio",
+      "estimate": 1.0,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "id-1d",
+      "usablePairs": 30,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 10,
+      "ci95": [
+        1.0066367237098945,
+        1.7054281360190269
+      ],
+      "declaredPairs": 30,
+      "endpoint": "conditionalMapImageRatio",
+      "estimate": 1.1170549851037694,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "id-2d",
+      "usablePairs": 10,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 27,
+      "ci95": [
+        1.0,
+        1.5837837837837838
+      ],
+      "declaredPairs": 30,
+      "endpoint": "conditionalMapImageRatio",
+      "estimate": 1.1686746987951808,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "ood-1d",
+      "usablePairs": 27,
+      "validBootstrapReplicates": 10000
+    },
+    {
+      "baseProblems": 30,
+      "bootstrapReplicates": 10000,
+      "bothCertifiedPairs": 0,
+      "ci95": null,
+      "declaredPairs": 30,
+      "endpoint": "conditionalMapImageRatio",
+      "estimate": null,
+      "interpretation": "learned/deterministic, conditional on both certified and positive cost",
+      "modelSeeds": 1,
+      "scope": "ood-2d",
+      "usablePairs": 0,
+      "validBootstrapReplicates": 0
+    }
+  ],
+  "bootstrap": {
+    "percentileInterval": [
+      0.025,
+      0.975
+    ],
+    "replicates": 10000,
+    "seed": 20261117,
+    "units": "base problems within regime and globally shared model seeds"
+  },
+  "referenceAudit": {
+    "interpretation": "Only qualified lower > certificate is a violation; scalar references only",
+    "qualifiedRows": 1200,
+    "unqualifiedRows": 0,
+    "upperOnlyExceedances": 72,
+    "violations": []
+  },
+  "trainingBreakEven": {
+    "reason": "Complete comparable training/label/preprocessing/selection cost is unavailable",
+    "repeatedSolves": null
+  },
+  "analysisSha256": "6880c75e6e612edc213c660d7155eb44f07277b03b653a4b7ea46a2f04922f28",
+  "staticFilesSha256": {
+    "analysis.json": "6880c75e6e612edc213c660d7155eb44f07277b03b653a4b7ea46a2f04922f28",
+    "method-regime-summary.csv": "71a6c5c7f59842cac500d49b74e46d397caafaf3ed4d8552a4a528b02559e050",
+    "primary-effects.csv": "0f4c09f5eaa54f77ae0608d16a32cbf19073b3f10a4f4988d8c9e52f3319c482",
+    "run-timing-summary.csv": "0eeb0d3e2139e3fc38ba6e3889b782f868231fd3382d5590ff9cf99fba2ce930"
+  },
+  "artifacts": [
+    {
+      "label": "All 32 methods / four regimes · CSV",
+      "url": "/evidence/method-regime-summary.csv"
+    },
+    {
+      "label": "Paired effects and intervals · CSV",
+      "url": "/evidence/primary-effects.csv"
+    },
+    {
+      "label": "Complete saved analysis · JSON",
+      "url": "/evidence/analysis.json"
+    },
+    {
+      "label": "Timing scope and verification · CSV",
+      "url": "/evidence/run-timing-summary.csv"
+    }
+  ]
+}
